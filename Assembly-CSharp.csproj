@@ -53,19 +53,20 @@
     <UnityVersion>2020.3.16f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Resources\Startup.cs" />
-    <Compile Include="Assets\modules\utility\RaycastTarget.cs" />
-    <Compile Include="Assets\Resources\LoadFromDrive.cs" />
     <Compile Include="Assets\Resources\LoadFromWeb.cs" />
-    <Compile Include="Assets\Resources\MinDalleTest.cs" />
-    <Compile Include="Assets\modules\utility\RightClickDetector.cs" />
-    <Compile Include="Assets\Resources\RunCraiyonOnline.cs" />
     <Compile Include="Assets\Resources\TextureLoader.cs" />
+    <Compile Include="Assets\Resources\LoadFromDrive.cs" />
+    <Compile Include="Assets\modules\utility\RightClickDetector.cs" />
+    <Compile Include="Assets\modules\preview_image\PreviewImage.cs" />
+    <Compile Include="Assets\Scripts\Startup.cs" />
+    <Compile Include="Assets\modules\utility\RaycastTarget.cs" />
     <Compile Include="Assets\modules\utility\Utility.cs" />
     <Compile Include="Assets\Resources\RunStableDiffusionOnline.cs" />
-    <Compile Include="Assets\modules\utility\ShortcutCreator.cs" />
     <Compile Include="Assets\modules\debuglog_output\OutputDebugLog.cs" />
-    <Compile Include="Assets\modules\preview_image\PreviewImage.cs" />
+    <Compile Include="Assets\Resources\MinDalleTest.cs" />
+    <Compile Include="Assets\Resources\RunCraiyonOnline.cs" />
+    <Compile Include="Assets\modules\utility\ShortcutCreator.cs" />
+    <Compile Include="Assets\Scripts\PictureFrameController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

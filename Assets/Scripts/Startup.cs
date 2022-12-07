@@ -12,14 +12,12 @@ using System.Threading;
 /// </summary>
 public class Startup : MonoBehaviour
 {
-    [SerializeField] InputField input;
-    [SerializeField] RawImage image;
-    [SerializeField] GameObject brush;
-    [SerializeField] GameObject loadingBar;
-    [SerializeField] Slider slider;
+    // [SerializeField] InputField input;
+    [SerializeField] GameObject image;
+  
     public Process process;
     public StreamWriter streamWriter;
-    private string prompt;
+    private string prompt = "cute owl watercolor painting";
     private Thread thread;
 
     public bool bInitialized = false;
@@ -29,7 +27,7 @@ public class Startup : MonoBehaviour
 
     
     private OutputStatus outputStatus = OutputStatus.Unfinished;
-   
+    int c = 0;
 
     private enum OutputStatus { Unfinished, Broken, BrokenNeedsRestart, FinishedSuccessfully }
 
@@ -47,7 +45,7 @@ public class Startup : MonoBehaviour
             }
         };
 
-        slider.value = 0.1F;
+        
         process.EnableRaisingEvents = true;
         process.OutputDataReceived += OnOutputDataReceived;
         process.ErrorDataReceived += OnOutputErrorReceived;
@@ -57,7 +55,7 @@ public class Startup : MonoBehaviour
 
         streamWriter = process.StandardInput;
 
-        slider.value = 0.3F;
+       
         if (streamWriter.BaseStream.CanWrite)
         {
             thread = new Thread(
@@ -79,14 +77,12 @@ public class Startup : MonoBehaviour
     }
     public void Go()
     {
-        brush.SetActive(true);
         outputStatus = OutputStatus.Unfinished;
         StartCoroutine(ieRequestImage());
     }
 
     private IEnumerator ieRequestImage()
     {
-        prompt = input.text;
         UnityEngine.Debug.Log($"Requesting " + prompt);
 
         yield return new WaitUntil(() => streamWriter.BaseStream.CanWrite);
@@ -109,8 +105,9 @@ public class Startup : MonoBehaviour
 
             UnityEngine.Debug.Log($"Finished loading image.");
 
-            image.texture = Utility.texLoadImageSecure(fileLatestPng.FullName, image.texture as Texture2D);
-            brush.SetActive(false);
+            Material mat = new Material(Shader.Find("Standard"));
+            mat.mainTexture = Utility.texLoadImageSecure(fileLatestPng.FullName, mat.mainTexture as Texture2D);
+            image.GetComponent<Renderer>().material = mat;
         }
     }
     private void ProcessOutput(string _strOutput)
@@ -120,11 +117,10 @@ public class Startup : MonoBehaviour
         if (_strOutput.StartsWith("* Initialization done!"))
         {
             bInitialized = true;
-            slider.value = 1F;
-            loadingBar.SetActive(false);
+           
         }
-        else if (_strOutput.StartsWith("* Initializing"))
-            slider.value = 0.5F;
+      
+            
         else if (outputStatus == OutputStatus.Unfinished && _strOutput.StartsWith("Outputs:"))
             outputStatus = OutputStatus.FinishedSuccessfully;
         else if (_strOutput.StartsWith(">> Could not generate image."))
@@ -142,6 +138,15 @@ public class Startup : MonoBehaviour
         foreach (string strError in liErrors)
             UnityEngine.Debug.Log(strError);
         liErrors.Clear();
+
+        
+
+        if (bInitialized == true && c < 1)
+        {
+            Go();
+            c++;
+        }
+           
     }
 
     private void OnOutputDataReceived(object sender, DataReceivedEventArgs e)
