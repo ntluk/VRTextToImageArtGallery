@@ -57,6 +57,7 @@
     <Compile Include="Assets\Resources\TextureLoader.cs" />
     <Compile Include="Assets\Resources\LoadFromDrive.cs" />
     <Compile Include="Assets\modules\utility\RightClickDetector.cs" />
+    <Compile Include="Assets\Scripts\AIPicture.cs" />
     <Compile Include="Assets\modules\preview_image\PreviewImage.cs" />
     <Compile Include="Assets\Scripts\Startup.cs" />
     <Compile Include="Assets\Scripts\PictureFrameController.cs" />
@@ -67,7 +68,6 @@
     <Compile Include="Assets\Resources\MinDalleTest.cs" />
     <Compile Include="Assets\Resources\RunCraiyonOnline.cs" />
     <Compile Include="Assets\modules\utility\ShortcutCreator.cs" />
-    <Compile Include="Assets\Scripts\AIPicture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
