@@ -1,13 +1,16 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Tobii.XR;
+
 
 // GalleryManager 
 public class PictureFrameController : MonoBehaviour
 {
     public List<Material> picturePool = new List<Material>();
     public List<Material> pictureSelection = new List<Material>();
+    private List<String> flickeringLights = new List<String>();
   
     public GameObject pictureFL;
     public GameObject pictureFR;
@@ -19,8 +22,10 @@ public class PictureFrameController : MonoBehaviour
     private GameObject focused;
     private String changedLast = "";
     private int swapCount = 0;
+    private bool isFlickering = false;
     
     private System.Random rnd;
+    private float timeDelay;
 
     // Start is called before the first frame update
     void Start()
@@ -32,27 +37,24 @@ public class PictureFrameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckEyeFocus();
-        CheckSwapCount();
+       CheckEyeFocus();
     }
 
     private void SelectFromPool()
     {
-        for (int i = 0; i <= pictureSelection.Count; i++)
+        for (int i = 0; i < pictureSelection.Count; i++)
         {
             int pos = rnd.Next(0, picturePool.Count);
-            if (picturePool[pos] != null)
-            {
-                pictureSelection[i] = picturePool[pos];
-                picturePool.Remove(picturePool[pos]);
-            }
+            pictureSelection[i] = picturePool[pos];
+            picturePool.Remove(picturePool[pos]);
+            
         }
     }
 
     private void CheckEyeFocus()
     {
         // Check whether TobiiXR has any focused objects.
-        if (TobiiXR.FocusedObjects.Count > 0)
+        if (TobiiXR.FocusedObjects.Count > 0 && pictureSelection.Count > 0)
         {
             focused = TobiiXR.FocusedObjects[0].GameObject;
             int pos = rnd.Next(0, pictureSelection.Count);
@@ -92,39 +94,62 @@ public class PictureFrameController : MonoBehaviour
         }
     }
 
-    private void CheckSwapCount()
-    {
-        switch (swapCount)
-        {
-            case 3:
-                // dimm lights
-                break;
-
-            case 6:
-                // dimm lights further
-                // start fading out frames
-                break;
-
-            case 9:
-                // dimm lights further
-                break;
-
-            case 12:
-                // dimm lights fully
-                // fade out remeining frames
-                // display personalized artpiece
-                break;
-
-
-        }
-    }
-
     private void SwapPicture(String inFocus, GameObject swapTarget, int picturePosInSelection)
     {
         swapTarget.GetComponent<Renderer>().material = pictureSelection[picturePosInSelection];
         pictureSelection.Remove(pictureSelection[picturePosInSelection]);
         changedLast = inFocus;
         swapCount++;
+
+        CheckSwapCount(swapTarget);
+    }
+
+    private void CheckSwapCount(GameObject swapTarget)
+    {
+        switch (swapCount)
+        {
+            case 3:
+                // start flicker on first fade-out-side
+                StartCoroutine(FlickerLight(swapTarget));
+                break;
+
+            case 6:
+                StartCoroutine(FlickerLight(swapTarget));
+                // start fading out frames
+                if (isFlickering && flickeringLights.Contains(swapTarget.name))
+                    swapTarget.transform.parent.gameObject.SetActive(false);
+                break;
+
+            case 9:
+                StartCoroutine(FlickerLight(swapTarget));
+                // start fading out frames
+                if (isFlickering && flickeringLights.Contains(swapTarget.name))
+                    swapTarget.transform.parent.gameObject.SetActive(false);
+                break;
+
+            case 12:
+                StartCoroutine(FlickerLight(swapTarget));
+                // start fading out frames
+                if (isFlickering && flickeringLights.Contains(swapTarget.name))
+                    swapTarget.transform.parent.gameObject.SetActive(false);
+                break;
+
+
+        }
+    }
+
+    IEnumerator FlickerLight(GameObject swapTarget)
+    {
+        isFlickering = true;
+        flickeringLights.Add(swapTarget.name);
+
+        swapTarget.GetComponentInChildren<Light>().enabled = false;
+        timeDelay = rnd.Next(1, 3);
+        yield return new WaitForSeconds(timeDelay);
+
+        swapTarget.GetComponentInChildren<Light>().enabled = true;
+        timeDelay = rnd.Next(1, 3);
+        yield return new WaitForSeconds(timeDelay);
     }
 
 
