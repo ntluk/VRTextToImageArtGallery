@@ -141,7 +141,7 @@ public class Startup : MonoBehaviour
 
         
 
-        if (bInitialized == true && c < 1)
+        if (bInitialized == true && c < 1 && gameObject.transform.Find("personal").gameObject.activeSelf)
         {
             Go();
             c++;

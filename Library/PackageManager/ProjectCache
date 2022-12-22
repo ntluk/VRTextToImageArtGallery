@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638066324435605546
-    m_Hash: 3296904637
+      ticks: 638072373774104468
+    m_Hash: 634835193
   m_LockFileStatus:
     m_FilePath: C:/VRTextToImageArtGallery/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638066324435695522
-    m_Hash: 3574506728
+      ticks: 638072373774214433
+    m_Hash: 622742317
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -782,12 +782,14 @@ m_PackageAssets:
         - 3.2.0-pre.1
         - 3.2.0-pre.2
         - 3.2.0-pre.3
+        - 3.2.0-pre.4
         - 4.0.0-pre.1
         compatible:
         - 3.0.6
         - 3.2.0-pre.1
         - 3.2.0-pre.2
         - 3.2.0-pre.3
+        - 3.2.0-pre.4
         verified: 3.0.6
       dependencies:
       - name: com.unity.ugui
@@ -1173,12 +1175,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/xr.sdk.openxr.git
         revision: 9c83bf2d4143ac7632a273fbc236ff5636d6fd71
         path: 
-    - packageId: com.valvesoftware.unity.openvr@file:C:\VRTextToImageArtGallery\Assets\SteamVR\OpenVRUnityXRPackage\Editor\com.valvesoftware.unity.openvr-1.1.4.tgz
+    - packageId: com.valvesoftware.unity.openvr@file:J:\Downloads\com.valvesoftware.unity.openvr-1.1.4.tgz
       testable: 0
       isDirectDependency: 1
       version: 1.1.4
       source: 6
-      resolvedPath: C:\VRTextToImageArtGallery\Library\PackageCache\com.valvesoftware.unity.openvr@b45b7504cfea-1614121125000
+      resolvedPath: C:\VRTextToImageArtGallery\Library\PackageCache\com.valvesoftware.unity.openvr@805fa5f87d46-1671640392131
       assetPath: Packages/com.valvesoftware.unity.openvr
       name: com.valvesoftware.unity.openvr
       displayName: OpenVR XR Plugin
@@ -3584,19 +3586,19 @@ m_PackageAssets:
         serializedVersion: 2
         ticks: 0
       m_Hash: 0
-    - m_FilePath: C:\VRTextToImageArtGallery\Assets\SteamVR\OpenVRUnityXRPackage\Editor\com.valvesoftware.unity.openvr-1.1.4.tgz/package.json
+    - m_FilePath: J:\Downloads\com.valvesoftware.unity.openvr-1.1.4.tgz/package.json
       m_PathExists: 0
       m_ContentTrackingEnabled: 1
       m_ModificationDate:
         serializedVersion: 2
         ticks: 0
       m_Hash: 0
-    - m_FilePath: C:\VRTextToImageArtGallery\Assets\SteamVR\OpenVRUnityXRPackage\Editor\com.valvesoftware.unity.openvr-1.1.4.tgz
+    - m_FilePath: J:\Downloads\com.valvesoftware.unity.openvr-1.1.4.tgz
       m_PathExists: 1
       m_ContentTrackingEnabled: 1
       m_ModificationDate:
         serializedVersion: 2
-        ticks: 637497179250000000
+        ticks: 638072371921305719
       m_Hash: 2919789393
 m_ProjectPath: C:/VRTextToImageArtGallery/Packages
 m_EditorVersion: 2020.3.16f1 (049d6eca3c44)

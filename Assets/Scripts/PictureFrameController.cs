@@ -11,7 +11,8 @@ public class PictureFrameController : MonoBehaviour
     public List<Material> picturePool = new List<Material>();
     public List<Material> pictureSelection = new List<Material>();
     private List<String> flickeringLights = new List<String>();
-  
+    private List<String> focusedBefore = new List<String>();
+
     public GameObject pictureFL;
     public GameObject pictureFR;
     public GameObject pictureL;
@@ -19,13 +20,19 @@ public class PictureFrameController : MonoBehaviour
     public GameObject pictureBL;
     public GameObject pictureBR;
 
+    public GameObject personalized;
+
     private GameObject focused;
+    private String finalPrompt = "";
+    private String focusedLast = "";
     private String changedLast = "";
     private int swapCount = 0;
+    private int focusCount = 0;
     private bool isFlickering = false;
     
     private System.Random rnd;
     private float timeDelay;
+    private int focusTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +64,10 @@ public class PictureFrameController : MonoBehaviour
         if (TobiiXR.FocusedObjects.Count > 0 && pictureSelection.Count > 0)
         {
             focused = TobiiXR.FocusedObjects[0].GameObject;
+            focusCount++;
+            if (focused.name.Equals(focusedLast))
+                focusTime++;
+
             int pos = rnd.Next(0, pictureSelection.Count);
 
             switch (focused.name)
@@ -91,6 +102,15 @@ public class PictureFrameController : MonoBehaviour
                         SwapPicture("BR", pictureFR, pos);
                     break;
             }
+
+            if(focusedBefore.Contains(focused.name) || IsStillInFocus())
+            {
+                if(!finalPrompt.Contains(focused.name))
+                    finalPrompt += focused.name;
+                Debug.Log(finalPrompt);
+            }
+
+            focusedBefore.Add(focused.name);
         }
     }
 
@@ -120,6 +140,20 @@ public class PictureFrameController : MonoBehaviour
                     swapTarget.transform.parent.gameObject.SetActive(false);
                 break;
 
+            case 7:
+                StartCoroutine(FlickerLight(swapTarget));
+                // start fading out frames
+                if (isFlickering && flickeringLights.Contains(swapTarget.name))
+                    swapTarget.transform.parent.gameObject.SetActive(false);
+                break;
+
+            case 8:
+                StartCoroutine(FlickerLight(swapTarget));
+                // start fading out frames
+                if (isFlickering && flickeringLights.Contains(swapTarget.name))
+                    swapTarget.transform.parent.gameObject.SetActive(false);
+                break;
+
             case 9:
                 StartCoroutine(FlickerLight(swapTarget));
                 // start fading out frames
@@ -127,15 +161,43 @@ public class PictureFrameController : MonoBehaviour
                     swapTarget.transform.parent.gameObject.SetActive(false);
                 break;
 
-            case 12:
+            case 10:
                 StartCoroutine(FlickerLight(swapTarget));
                 // start fading out frames
                 if (isFlickering && flickeringLights.Contains(swapTarget.name))
                     swapTarget.transform.parent.gameObject.SetActive(false);
                 break;
 
+            case 11:
+                StartCoroutine(FlickerLight(swapTarget));
+                // start fading out frames
+                if (isFlickering && flickeringLights.Contains(swapTarget.name))
+                    swapTarget.transform.parent.gameObject.SetActive(false);
+                break;
 
+            case 12:
+               gameObject.SetActive(false);
+               personalized.SetActive(true);
+                break;
         }
+        CheckFocusCount();
+    }
+
+    private void CheckFocusCount()
+    {
+        if (focusCount > 200)
+        {
+            gameObject.SetActive(false);
+            personalized.SetActive(true);
+        }
+    }
+
+    private bool IsStillInFocus()
+    {
+        if (focusTime > 20*90)
+            return true;
+        else
+            return false;
     }
 
     IEnumerator FlickerLight(GameObject swapTarget)
@@ -151,6 +213,7 @@ public class PictureFrameController : MonoBehaviour
         timeDelay = rnd.Next(1, 3);
         yield return new WaitForSeconds(timeDelay);
     }
+
 
 
 }
