@@ -21,6 +21,7 @@ public class PictureFrameController : MonoBehaviour
     public GameObject pictureBR;
 
     public GameObject personalized;
+    public GameObject prefab;
 
     private GameObject focused;
     private String finalPrompt = "";
@@ -90,6 +91,7 @@ public class PictureFrameController : MonoBehaviour
                 case "PictureR":
                     if (!changedLast.Equals("R"))
                         SwapPicture("R", pictureL, pos);
+                        // Instantiate(prefab);
                     break;
 
                 case "PictureBL":
