@@ -8,8 +8,10 @@ using Tobii.XR;
 // GalleryManager 
 public class PictureFrameController : MonoBehaviour
 {
-    public List<Material> picturePool = new List<Material>();
-    public List<Material> pictureSelection = new List<Material>();
+    // public List<Material> picturePool = new List<Material>();
+    // public List<Material> pictureSelection = new List<Material>();
+    public List<GameObject> picturePool = new List<GameObject>();
+    public List<GameObject> pictureSelection = new List<GameObject>();
     private List<String> flickeringLights = new List<String>();
     private List<String> focusedBefore = new List<String>();
 
@@ -118,7 +120,7 @@ public class PictureFrameController : MonoBehaviour
 
     private void SwapPicture(String inFocus, GameObject swapTarget, int picturePosInSelection)
     {
-        swapTarget.GetComponent<Renderer>().material = pictureSelection[picturePosInSelection];
+        swapTarget.GetComponent<Renderer>().material = pictureSelection[picturePosInSelection].GetComponent<Renderer>().material;
         pictureSelection.Remove(pictureSelection[picturePosInSelection]);
         changedLast = inFocus;
         swapCount++;
