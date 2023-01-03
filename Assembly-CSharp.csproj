@@ -53,39 +53,42 @@
     <UnityVersion>2020.3.16f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Grabbing\GazeGrabbableObject.cs" />
     <Compile Include="Assets\Resources\LoadFromWeb.cs" />
     <Compile Include="Assets\Resources\TextureLoader.cs" />
     <Compile Include="Assets\Resources\LoadFromDrive.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Getting Started\Scripts\HighlightAtGaze.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Social\Scripts\TobiiSocialEyeData.cs" />
     <Compile Include="Assets\modules\utility\RightClickDetector.cs" />
+    <Compile Include="Assets\Scripts\OSC.cs" />
+    <Compile Include="Assets\Scripts\ReceiveAll.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Social\Scripts\OneEuroFilter\OneEuroFilter.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Throwing\ThrowAtGaze.cs" />
     <Compile Include="Assets\Scripts\AIPicture.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Developer Tools\Scripts\SimpleMovement.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Utilities\HighlightAtGaze.cs" />
     <Compile Include="Assets\modules\preview_image\PreviewImage.cs" />
     <Compile Include="Assets\Scripts\Startup.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Developer Tools\Scripts\SimpleScaling.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Utilities\ThrowingSceneManager.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Throwing\GazeThrowTarget.cs" />
     <Compile Include="Assets\Scripts\PictureFrameController.cs" />
     <Compile Include="Assets\modules\utility\RaycastTarget.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Developer Tools\Scripts\SimpleRotation.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Grabbing\GazeGrab.cs" />
     <Compile Include="Assets\modules\utility\Utility.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Developer Tools\Scripts\HighlightAtGaze.cs" />
+    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\UI\Scripts\UIPrinter.cs" />
     <Compile Include="Assets\Resources\RunStableDiffusionOnline.cs" />
     <Compile Include="Assets\modules\debuglog_output\OutputDebugLog.cs" />
-    <Compile Include="Assets\Resources\MinDalleTest.cs" />
-    <Compile Include="Assets\Resources\RunCraiyonOnline.cs" />
-    <Compile Include="Assets\modules\utility\ShortcutCreator.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Throwing\ThrowAtGaze.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Utilities\HighlightAtGaze.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Utilities\ResetObjectPosition.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Throwing\GazeThrowableObject.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Utilities\ThrowingSceneManager.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Grabbing\GazeGrabbableObject.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Throwing\GazeThrowTarget.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Grabbing\GazeGrab.cs" />
+    <Compile Include="Assets\Resources\MinDalleTest.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Social\Scripts\TobiiAvatarEyesAndBlendShapes.cs" />
+    <Compile Include="Assets\Resources\RunCraiyonOnline.cs" />
+    <Compile Include="Assets\modules\utility\ShortcutCreator.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Social\Scripts\MirroredAvatar.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Social\Scripts\TobiiSocialEyeData.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Social\Scripts\OneEuroFilter\OneEuroFilter.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\UI\Scripts\UIPrinter.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Developer Tools\Scripts\SimpleMovement.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Developer Tools\Scripts\SimpleScaling.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Developer Tools\Scripts\HighlightAtGaze.cs" />
-    <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Developer Tools\Scripts\SimpleRotation.cs" />
+    <Compile Include="Assets\Scripts\SendOSC.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
