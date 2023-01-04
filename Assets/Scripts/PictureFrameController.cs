@@ -183,8 +183,8 @@ public class PictureFrameController : MonoBehaviour
                 break;
 
             case 12:
-               gameObject.SetActive(false);
-               personalized.SetActive(true);
+                //gameObject.SetActive(false);
+                //personalized.SetActive(true);
                 break;
         }
         focusCount++;
@@ -195,8 +195,8 @@ public class PictureFrameController : MonoBehaviour
     {
         if (focusCount > 200 || pictureSelection.Count < 4)
         {
-            gameObject.SetActive(false);
-            personalized.SetActive(true);
+            //gameObject.SetActive(false);
+            //personalized.SetActive(true);
         }
     }
 

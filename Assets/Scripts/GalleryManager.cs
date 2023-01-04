@@ -9,10 +9,10 @@ using TMPro;
 // GalleryManager 
 public class GalleryManager : MonoBehaviour
 {
-    public List<GameObject> picturePool = new();
-    public List<GameObject> pictureSelection = new();
-    private List<String> flickeringLights = new();
-    private List<String> focusedBefore = new();
+    public List<GameObject> picturePool = new List<GameObject>();
+    public List<GameObject> pictureSelection = new List<GameObject>();
+    private List<String> flickeringLights = new List<String>();
+    private List<String> focusedBefore = new List<String>();
 
     public GameObject pictureFL;
     public GameObject pictureFR;
@@ -183,8 +183,8 @@ public class GalleryManager : MonoBehaviour
                 break;
 
             case 12:
-                gameObject.SetActive(false);
-                personalized.SetActive(true);
+                //gameObject.SetActive(false);
+                //personalized.SetActive(true);
                 break;
         }
         focusCount++;
@@ -195,8 +195,8 @@ public class GalleryManager : MonoBehaviour
     {
         if (focusCount > 200 || pictureSelection.Count < 4)
         {
-            gameObject.SetActive(false);
-            personalized.SetActive(true);
+            //gameObject.SetActive(false);
+            //personalized.SetActive(true);
         }
     }
 
