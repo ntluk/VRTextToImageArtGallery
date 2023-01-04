@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Tobii.XR;
+using TMPro;
 
 
 // GalleryManager 
@@ -120,8 +121,10 @@ public class PictureFrameController : MonoBehaviour
 
     private void SwapPicture(String inFocus, GameObject swapTarget, int picturePosInSelection)
     {
+
         swapTarget.GetComponent<Renderer>().material = pictureSelection[picturePosInSelection];
         pictureSelection.Remove(pictureSelection[picturePosInSelection]);
+        swapTarget.GetComponentInChildren<TextMeshPro>().text = pictureSelection[picturePosInSelection].name;
         changedLast = inFocus;
         swapCount++;
 

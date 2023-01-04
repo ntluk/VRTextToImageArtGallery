@@ -89,6 +89,7 @@
     <Compile Include="Assets\modules\utility\ShortcutCreator.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Social\Scripts\MirroredAvatar.cs" />
     <Compile Include="Assets\Scripts\SendOSC.cs" />
+    <Compile Include="Assets\Scripts\GalleryManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

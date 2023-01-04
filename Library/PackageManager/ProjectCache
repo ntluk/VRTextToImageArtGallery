@@ -13,19 +13,27 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638084310758882592
-    m_Hash: 18604410
+      ticks: 638084345332881617
+    m_Hash: 3291472620
 m_EmbeddedPackageManifests:
-  m_ManifestsStatus: {}
+  m_ManifestsStatus:
+    C:/Users/Mirevi/source/repos/VRTextToImageArtGallery/Packages/TobiiXRSDK_3.0.1.179/package.json:
+      m_FilePath: C:/Users/Mirevi/source/repos/VRTextToImageArtGallery/Packages/TobiiXRSDK_3.0.1.179/package.json
+      m_PathExists: 1
+      m_ContentTrackingEnabled: 1
+      m_ModificationDate:
+        serializedVersion: 2
+        ticks: 638042951584196375
+      m_Hash: 376237327
 m_PackageAssets:
   m_Packages:
     m_ResolvedPackages:
-    - packageId: com.tobii.xr.sdk@file:C:\Users\Mirevi\Downloads\TobiiXRSDK_3.0.1.179
-      testable: 0
+    - packageId: com.tobii.xr.sdk@file:C:\Users\Mirevi\source\repos\VRTextToImageArtGallery\Packages\TobiiXRSDK_3.0.1.179
+      testable: 1
       isDirectDependency: 1
       version: 3.0.1
-      source: 4
-      resolvedPath: C:\Users\Mirevi\Downloads\TobiiXRSDK_3.0.1.179
+      source: 3
+      resolvedPath: C:\Users\Mirevi\source\repos\VRTextToImageArtGallery\Packages\TobiiXRSDK_3.0.1.179
       assetPath: Packages/com.tobii.xr.sdk
       name: com.tobii.xr.sdk
       displayName: Tobii XR SDK
