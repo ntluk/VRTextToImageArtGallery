@@ -44,3 +44,13 @@ The following packages were added:
   com.unity.textmeshpro@3.0.6
   com.unity.timeline@1.4.8
   com.unity.ugui@1.0.0
+
+=== Wed Jan  4 13:06:20 2023
+
+Packages were changed.
+Update Mode: resetToDefaultDependencies
+
+The following packages were removed:
+  com.tobii.xr.sdk@file:TobiiXRSDK/TobiiXRSDK_3.0.1.179
+  com.unity.xr.openxr@1.2.8
+  com.valvesoftware.unity.openvr@file:OpenVR/com.valvesoftware.unity.openvr-1.1.4.tgz

@@ -8,10 +8,10 @@ using Tobii.XR;
 // GalleryManager 
 public class PictureFrameController : MonoBehaviour
 {
-    // public List<Material> picturePool = new List<Material>();
-    // public List<Material> pictureSelection = new List<Material>();
-    public List<GameObject> picturePool = new List<GameObject>();
-    public List<GameObject> pictureSelection = new List<GameObject>();
+    public List<Material> picturePool = new List<Material>();
+    public List<Material> pictureSelection = new List<Material>();
+    // public List<GameObject> picturePool = new List<GameObject>();
+    // public List<GameObject> pictureSelection = new List<GameObject>();
     private List<String> flickeringLights = new List<String>();
     private List<String> focusedBefore = new List<String>();
 
@@ -67,7 +67,7 @@ public class PictureFrameController : MonoBehaviour
         if (TobiiXR.FocusedObjects.Count > 0 && pictureSelection.Count > 0)
         {
             focused = TobiiXR.FocusedObjects[0].GameObject;
-            focusCount++;
+            
             if (focused.name.Equals(focusedLast))
                 focusTime++;
 
@@ -120,7 +120,7 @@ public class PictureFrameController : MonoBehaviour
 
     private void SwapPicture(String inFocus, GameObject swapTarget, int picturePosInSelection)
     {
-        swapTarget.GetComponent<Renderer>().material = pictureSelection[picturePosInSelection].GetComponent<Renderer>().material;
+        swapTarget.GetComponent<Renderer>().material = pictureSelection[picturePosInSelection];
         pictureSelection.Remove(pictureSelection[picturePosInSelection]);
         changedLast = inFocus;
         swapCount++;
@@ -184,12 +184,13 @@ public class PictureFrameController : MonoBehaviour
                personalized.SetActive(true);
                 break;
         }
+        focusCount++;
         CheckFocusCount();
     }
 
     private void CheckFocusCount()
     {
-        if (focusCount > 200)
+        if (focusCount > 200 || pictureSelection.Count < 4)
         {
             gameObject.SetActive(false);
             personalized.SetActive(true);
