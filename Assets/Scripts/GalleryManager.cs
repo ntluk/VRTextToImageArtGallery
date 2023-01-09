@@ -14,12 +14,20 @@ public class GalleryManager : MonoBehaviour
     private List<String> flickeringLights = new List<String>();
     private List<String> focusedBefore = new List<String>();
 
-    public GameObject pictureFL;
-    public GameObject pictureFR;
-    public GameObject pictureL;
-    public GameObject pictureR;
-    public GameObject pictureBL;
-    public GameObject pictureBR;
+    public GameObject pictureF_a;
+    public GameObject pictureF_b;
+    public GameObject pictureF_c;
+    public GameObject pictureF_d;
+    public GameObject pictureL_a;
+    public GameObject pictureL_b;
+    public GameObject pictureL_c;
+    public GameObject pictureR_a;
+    public GameObject pictureR_b;
+    public GameObject pictureR_c;
+    public GameObject pictureB_a;
+    public GameObject pictureB_b;
+    public GameObject pictureB_c;
+    public GameObject pictureB_d;
 
     public GameObject personalized;
     public GameObject prefab;
@@ -74,34 +82,74 @@ public class GalleryManager : MonoBehaviour
 
             switch (focused.name)
             {
-                case "PictureFL":
-                    if (!changedLast.Equals("FL"))
-                        SwapPicture("FL", pictureBL, pos);
+                case "PictureF_a":
+                    if (!changedLast.Equals("F_a"))
+                        SwapPicture("F_a", pictureB_d, pos);
                     break;
 
-                case "PictureFR":
-                    if (!changedLast.Equals("FR"))
-                        SwapPicture("FR", pictureBR, pos);
+                case "PictureF_b":
+                    if (!changedLast.Equals("F_b"))
+                        SwapPicture("F_b", pictureB_c, pos);
                     break;
 
-                case "PictureL":
-                    if (!changedLast.Equals("L"))
-                        SwapPicture("L", pictureR, pos);
+                case "PictureF_c":
+                    if (!changedLast.Equals("F_c"))
+                        SwapPicture("F_c", pictureB_b, pos);
                     break;
 
-                case "PictureR":
-                    if (!changedLast.Equals("R"))
-                        SwapPicture("R", pictureL, pos);
+                case "PictureF_d":
+                    if (!changedLast.Equals("F_d"))
+                        SwapPicture("F_d", pictureB_a, pos);
                     break;
 
-                case "PictureBL":
-                    if (!changedLast.Equals("BL"))
-                        SwapPicture("BL", pictureFL, pos);
+                case "PictureL_a":
+                    if (!changedLast.Equals("L_a"))
+                        SwapPicture("L_a", pictureR_c, pos);
                     break;
 
-                case "PictureBR":
-                    if (!changedLast.Equals("BR"))
-                        SwapPicture("BR", pictureFR, pos);
+                case "PictureL_b":
+                    if (!changedLast.Equals("L_b"))
+                        SwapPicture("L_b", pictureR_b, pos);
+                    break;
+
+                case "PictureL_c":
+                    if (!changedLast.Equals("L_c"))
+                        SwapPicture("L_c", pictureR_a, pos);
+                    break;
+
+                case "PictureR_a":
+                    if (!changedLast.Equals("R_a"))
+                        SwapPicture("R_a", pictureL_c, pos);
+                    break;
+
+                case "PictureR_b":
+                    if (!changedLast.Equals("R_b"))
+                        SwapPicture("R_b", pictureL_b, pos);
+                    break;
+
+                case "PictureR_c":
+                    if (!changedLast.Equals("R_c"))
+                        SwapPicture("R_c", pictureL_a, pos);
+                    break;
+
+                case "PictureB_a":
+                    if (!changedLast.Equals("B_a"))
+                        SwapPicture("B_a", pictureF_d, pos);
+                    break;
+
+                case "PictureB_b":
+                    if (!changedLast.Equals("B_b"))
+                        SwapPicture("B_b", pictureF_c, pos);
+                    break;
+
+                case "PictureB_c":
+                    if (!changedLast.Equals("B_c"))
+                        SwapPicture("B_c", pictureF_b, pos);
+                    break;
+
+                case "PictureB_d":
+                    if (!changedLast.Equals("B_d"))
+                        SwapPicture("B_d", pictureF_a, pos);
                     break;
             }
 
