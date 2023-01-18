@@ -51,7 +51,7 @@ public class GalleryManager : MonoBehaviour
         rnd = new System.Random();
 
         SelectFromPool();
-        //SetupRoom();
+        SetupRoom();
     }
 
     // Update is called once per frame
@@ -74,7 +74,7 @@ public class GalleryManager : MonoBehaviour
     {
         for (int i = 0; i < pictureFrames.Count; i++)
         {
-            Instantiate(pictureSelection[i], pictureFrames[i].transform.GetChild(0));
+            Instantiate(pictureSelection[i], pictureFrames[i].transform);
             Destroy(pictureFrames[i].transform.GetChild(0).gameObject);
         }
     }

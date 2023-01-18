@@ -12,7 +12,7 @@ public class UDPSend : MonoBehaviour
     private static int localPort;
 
     // prefs
-    private string IP;  // define in init
+    public string IP;  // define in init
     public int port;  // define in init
 
     // "connection" things
@@ -48,8 +48,8 @@ public class UDPSend : MonoBehaviour
         Rect rectObj = new Rect(40, 380, 200, 400);
         GUIStyle style = new GUIStyle();
         style.alignment = TextAnchor.UpperLeft;
-        GUI.Box(rectObj, "# UDPSend-Data\n127.0.0.1 " + port + " #\n"
-                    + "shell> nc -lu 127.0.0.1  " + port + " \n"
+        GUI.Box(rectObj, "# UDPSend-Data\n"+ IP + ":" + port + " #\n"
+                    + "shell> nc -lu 127.16.1.74  " + port + " \n"
                 , style);
 
         // ------------------------
@@ -69,7 +69,7 @@ public class UDPSend : MonoBehaviour
         print("UDPSend.init()");
 
         // define
-        IP = "127.0.0.1";
+        IP = "172.16.1.74";
         port = 8051;
 
         // ----------------------------
@@ -126,6 +126,7 @@ public class UDPSend : MonoBehaviour
 
             // Den message zum Remote-Client senden.
             client.Send(data, data.Length, remoteEndPoint);
+            print("sent");
             //}
         }
         catch (Exception err)
