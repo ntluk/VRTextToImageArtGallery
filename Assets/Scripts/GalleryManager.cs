@@ -9,6 +9,7 @@ using TMPro;
 // GalleryManager 
 public class GalleryManager : MonoBehaviour
 {
+    public List<GameObject> pictureFrames = new List<GameObject>();
     public List<GameObject> picturePool = new List<GameObject>();
     public List<GameObject> pictureSelection = new List<GameObject>();
     private List<String> flickeringLights = new List<String>();
@@ -29,8 +30,8 @@ public class GalleryManager : MonoBehaviour
     public GameObject pictureB_c;
     public GameObject pictureB_d;
 
-    public GameObject personalized;
-    public GameObject prefab;
+    private GameObject personalized;
+    private GameObject prefab;
 
     private GameObject focused;
     private String finalPrompt = "";
@@ -48,7 +49,9 @@ public class GalleryManager : MonoBehaviour
     void Start()
     {
         rnd = new System.Random();
+
         SelectFromPool();
+        //SetupRoom();
     }
 
     // Update is called once per frame
@@ -64,23 +67,30 @@ public class GalleryManager : MonoBehaviour
             int pos = rnd.Next(0, picturePool.Count);
             pictureSelection[i] = picturePool[pos];
             picturePool.Remove(picturePool[pos]);
-
         }
     }
 
+    private void SetupRoom()
+    {
+        for (int i = 0; i < pictureFrames.Count; i++)
+        {
+            Instantiate(pictureSelection[i], pictureFrames[i].transform.GetChild(0));
+            Destroy(pictureFrames[i].transform.GetChild(0).gameObject);
+        }
+    }
     private void CheckEyeFocus()
     {
         // Check for focused objects.
         if (TobiiXR.FocusedObjects.Count > 0 && pictureSelection.Count > 0)
         {
             focused = TobiiXR.FocusedObjects[0].GameObject;
-
+            Debug.Log(focused.transform.parent.name);
             if (focused.name.Equals(focusedLast))
                 focusTime++;
 
             int pos = rnd.Next(0, pictureSelection.Count);
 
-            switch (focused.name)
+            switch (focused.transform.parent.name)
             {
                 case "PictureF_a":
                     if (!changedLast.Equals("F_a"))
@@ -156,7 +166,7 @@ public class GalleryManager : MonoBehaviour
             if (focusedBefore.Contains(focused.name) || IsStillInFocus())
             {
                 if (!finalPrompt.Contains(focused.name))
-                    finalPrompt += focused.name;
+                    finalPrompt += focused.name; // change to section names and styles
                 Debug.Log(finalPrompt);
             }
 
@@ -166,17 +176,21 @@ public class GalleryManager : MonoBehaviour
 
     private void SwapPicture(String inFocus, GameObject swapTarget, int picturePosInSelection)
     {
+        Debug.Log("swapping picture");
         GameObject pictureToSet = pictureSelection[picturePosInSelection];
 
-        Destroy(swapTarget);
-        Instantiate(pictureToSet);
-        pictureSelection.Remove(pictureToSet);
-
-        ChangeLable(swapTarget, pictureToSet);
+        if(swapTarget != null)
+        {
+            Instantiate(pictureToSet, swapTarget.transform.parent);
+            Destroy(swapTarget);
+            pictureSelection.Remove(pictureToSet);
+        }
+       
+        // ChangeLable(swapTarget, pictureToSet);
         changedLast = inFocus;
         swapCount++;
 
-        CheckSwapCount(swapTarget);
+        //CheckSwapCount(swapTarget);
     }
 
     private void CheckSwapCount(GameObject swapTarget)
@@ -231,10 +245,13 @@ public class GalleryManager : MonoBehaviour
                 break;
 
             case 12:
-                //gameObject.SetActive(false);
-                //personalized.SetActive(true);
+                //gen img
                 break;
         }
+
+        if (personalized != null)
+            gameObject.SetActive(false);
+
         focusCount++;
         CheckFocusCount();
     }
@@ -270,10 +287,10 @@ public class GalleryManager : MonoBehaviour
         yield return new WaitForSeconds(timeDelay);
     }
 
-    private void ChangeLable(GameObject swapTarget, GameObject pictureToSet)
-    {
-        swapTarget.GetComponentInChildren<TextMeshPro>().text = pictureToSet.name;
-    }
+    //private void ChangeLable(GameObject swapTarget, GameObject pictureToSet)
+    //{
+    //    swapTarget.GetComponentInChildren<TextMeshPro>().text = pictureToSet.name;
+    //}
 
 }
 
