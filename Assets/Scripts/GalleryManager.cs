@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Tobii.XR;
 using TMPro;
 
@@ -40,6 +41,7 @@ public class GalleryManager : MonoBehaviour
     private int swapCount = 0;
     private int focusCount = 0;
     private bool isFlickering = false;
+    private bool sent = false;
 
     private System.Random rnd;
     private float timeDelay;
@@ -62,6 +64,11 @@ public class GalleryManager : MonoBehaviour
     {
         CheckEyeFocus();
         //sender.sendString("test");
+        if (swapCount > 10 && sent == false)
+        {
+            sender.sendString(finalPrompt);
+            sent = true;
+        }
     }
 
     private void SelectFromPool()
@@ -87,14 +94,16 @@ public class GalleryManager : MonoBehaviour
         // Check for focused objects.
         if (TobiiXR.FocusedObjects.Count > 0 && pictureSelection.Count > 0)
         {
+            
             focused = TobiiXR.FocusedObjects[0].GameObject;
-            Debug.Log(focused.transform.parent.name);
-            if (focused.name.Equals(focusedLast))
+            Debug.Log(focused.transform.parent.parent.parent.name);
+            if (focusedLast.Contains(focused.name))
                 focusTime++;
-
+            focusedLast += focused.name;
+            
             int pos = rnd.Next(0, pictureSelection.Count);
 
-            switch (focused.transform.parent.name)
+            switch (focused.transform.parent.parent.parent.name)
             {
                 case "PictureF_a":
                     if (!changedLast.Equals("F_a"))
@@ -167,10 +176,12 @@ public class GalleryManager : MonoBehaviour
                     break;
             }
 
-            if (focusedBefore.Contains(focused.name) || IsStillInFocus())
+            if (focusedBefore.Contains(focused.name) && IsStillInFocus())
             {
                 if (!finalPrompt.Contains(focused.name))
-                    finalPrompt += focused.name; // change to section names and styles
+                    finalPrompt += focused.name +" ";
+                if (!finalPrompt.Contains(focused.GetComponent<Text>().text))
+                    finalPrompt += focused.GetComponent<Text>().text + " ";
                 Debug.Log(finalPrompt);
             }
 
@@ -194,68 +205,77 @@ public class GalleryManager : MonoBehaviour
         changedLast = inFocus;
         swapCount++;
 
-        //CheckSwapCount(swapTarget);
+        CheckSwapCount(swapTarget);
     }
 
     private void CheckSwapCount(GameObject swapTarget)
     {
         switch (swapCount)
         {
-            case 3: 
+            case 3:
                 // start flicker on first fade-out-side
+               
                 StartCoroutine(FlickerLight(swapTarget));
                 break;
 
             case 6:
                 StartCoroutine(FlickerLight(swapTarget));
                 // start fading out frames
-                if (isFlickering && flickeringLights.Contains(swapTarget.name))
-                    swapTarget.transform.parent.gameObject.SetActive(false);
+                //if (isFlickering && flickeringLights.Contains(swapTarget.name))
+                //    swapTarget.transform.parent.gameObject.SetActive(false);
+                
                 break;
 
             case 7:
                 StartCoroutine(FlickerLight(swapTarget));
                 // start fading out frames
-                if (isFlickering && flickeringLights.Contains(swapTarget.name))
-                    swapTarget.transform.parent.gameObject.SetActive(false);
+                //if (isFlickering && flickeringLights.Contains(swapTarget.name))
+                //    swapTarget.transform.parent.gameObject.SetActive(false);
                 break;
 
             case 8:
                 StartCoroutine(FlickerLight(swapTarget));
                 // start fading out frames
-                if (isFlickering && flickeringLights.Contains(swapTarget.name))
-                    swapTarget.transform.parent.gameObject.SetActive(false);
+                //if (isFlickering && flickeringLights.Contains(swapTarget.name))
+                //    swapTarget.transform.parent.gameObject.SetActive(false);
                 break;
 
             case 9:
+                
                 StartCoroutine(FlickerLight(swapTarget));
-                // start fading out frames
-                if (isFlickering && flickeringLights.Contains(swapTarget.name))
-                    swapTarget.transform.parent.gameObject.SetActive(false);
+                //// start fading out frames
+                //if (isFlickering && flickeringLights.Contains(swapTarget.name))
+                //    swapTarget.transform.parent.gameObject.SetActive(false);
+               
                 break;
 
-            case 10:
-                StartCoroutine(FlickerLight(swapTarget));
-                // start fading out frames
-                if (isFlickering && flickeringLights.Contains(swapTarget.name))
-                    swapTarget.transform.parent.gameObject.SetActive(false);
-                break;
+            //case 10:
+            //    StartCoroutine(FlickerLight(swapTarget));
+            //    // start fading out frames
+            //    if (isFlickering && flickeringLights.Contains(swapTarget.name))
+            //        swapTarget.transform.parent.gameObject.SetActive(false);
+            //    break;
 
-            case 11:
-                StartCoroutine(FlickerLight(swapTarget));
-                // start fading out frames
-                if (isFlickering && flickeringLights.Contains(swapTarget.name))
-                    swapTarget.transform.parent.gameObject.SetActive(false);
-                break;
+            //case 11:
+            //    StartCoroutine(FlickerLight(swapTarget));
+            //    // start fading out frames
+            //    if (isFlickering && flickeringLights.Contains(swapTarget.name))
+            //        swapTarget.transform.parent.gameObject.SetActive(false);
+            //    break;
 
-            case 12:
+            case 20:
                 //gen img
-                sender.sendString(finalPrompt);
+                //gameObject.SetActive(false);
+                //personalized.SetActive(true);
                 break;
         }
 
-        if (personalized != null)
+        if (pictureSelection.Count < 1)
+        {
             gameObject.SetActive(false);
+            personalized.SetActive(true);
+        }
+            
 
         focusCount++;
         CheckFocusCount();
@@ -272,7 +292,7 @@ public class GalleryManager : MonoBehaviour
 
     private bool IsStillInFocus()
     {
-        if (focusTime > 20 * 90)
+        if (focusTime > 5 * 90)
             return true;
         else
             return false;
