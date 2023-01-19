@@ -30,8 +30,8 @@ public class GalleryManager : MonoBehaviour
     public GameObject pictureB_c;
     public GameObject pictureB_d;
 
-    private GameObject personalized;
-    private GameObject prefab;
+    public GameObject personalized;
+    public GameObject personalPrefab;
 
     private GameObject focused;
     private String finalPrompt = "";
@@ -45,9 +45,12 @@ public class GalleryManager : MonoBehaviour
     private float timeDelay;
     private int focusTime = 0;
 
+    private UDPSend sender = new UDPSend();
+
     // Start is called before the first frame update
     void Start()
     {
+        sender.Start();
         rnd = new System.Random();
 
         SelectFromPool();
@@ -58,6 +61,7 @@ public class GalleryManager : MonoBehaviour
     void Update()
     {
         CheckEyeFocus();
+        //sender.sendString("test");
     }
 
     private void SelectFromPool()
@@ -181,8 +185,8 @@ public class GalleryManager : MonoBehaviour
 
         if(swapTarget != null)
         {
-            Instantiate(pictureToSet, swapTarget.transform.parent);
-            Destroy(swapTarget);
+            Instantiate(pictureToSet, swapTarget.transform);
+            Destroy(swapTarget.transform.GetChild(0).gameObject);
             pictureSelection.Remove(pictureToSet);
         }
        
@@ -197,7 +201,7 @@ public class GalleryManager : MonoBehaviour
     {
         switch (swapCount)
         {
-            case 3:
+            case 3: 
                 // start flicker on first fade-out-side
                 StartCoroutine(FlickerLight(swapTarget));
                 break;
@@ -246,6 +250,7 @@ public class GalleryManager : MonoBehaviour
 
             case 12:
                 //gen img
+                sender.sendString(finalPrompt);
                 break;
         }
 

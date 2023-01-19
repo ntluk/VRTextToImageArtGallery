@@ -43,24 +43,24 @@ public class UDPSend : MonoBehaviour
     }
 
     // OnGUI
-    void OnGUI()
-    {
-        Rect rectObj = new Rect(40, 380, 200, 400);
-        GUIStyle style = new GUIStyle();
-        style.alignment = TextAnchor.UpperLeft;
-        GUI.Box(rectObj, "# UDPSend-Data\n"+ IP + ":" + port + " #\n"
-                    + "shell> nc -lu 127.16.1.74  " + port + " \n"
-                , style);
+    //void OnGUI()
+    //{
+    //    Rect rectObj = new Rect(40, 380, 200, 400);
+    //    GUIStyle style = new GUIStyle();
+    //    style.alignment = TextAnchor.UpperLeft;
+    //    GUI.Box(rectObj, "# UDPSend-Data\n"+ IP + ":" + port + " #\n"
+    //                + "shell> nc -lu 127.16.1.74  " + port + " \n"
+    //            , style);
 
-        // ------------------------
-        // send it
-        // ------------------------
-        strMessage = GUI.TextField(new Rect(40, 420, 140, 20), strMessage);
-        if (GUI.Button(new Rect(190, 420, 40, 20), "send"))
-        {
-            sendString(strMessage + "\n");
-        }
-    }
+    //    // ------------------------
+    //    // send it
+    //    // ------------------------
+    //    strMessage = GUI.TextField(new Rect(40, 420, 140, 20), strMessage);
+    //    if (GUI.Button(new Rect(190, 420, 40, 20), "send"))
+    //    {
+    //        sendString(strMessage + "\n");
+    //    }
+    //}
 
     // init
     public void init()
@@ -114,7 +114,7 @@ public class UDPSend : MonoBehaviour
     }
 
     // sendData
-    private void sendString(string message)
+    public void sendString(string message)
     {
         try
         {
