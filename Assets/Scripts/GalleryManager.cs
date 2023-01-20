@@ -179,9 +179,9 @@ public class GalleryManager : MonoBehaviour
             if (focusedBefore.Contains(focused.name) && IsStillInFocus())
             {
                 if (!finalPrompt.Contains(focused.name))
-                    finalPrompt += focused.name +" ";
+                    finalPrompt += focused.name +", ";
                 if (!finalPrompt.Contains(focused.GetComponent<Text>().text))
-                    finalPrompt += focused.GetComponent<Text>().text + " ";
+                    finalPrompt += focused.GetComponent<Text>().text + ", ";
                 Debug.Log(finalPrompt);
             }
 
@@ -270,11 +270,11 @@ public class GalleryManager : MonoBehaviour
                 break;
         }
 
-        if (pictureSelection.Count < 1)
-        {
-            gameObject.SetActive(false);
-            personalized.SetActive(true);
-        }
+        //if (pictureSelection.Count < 1)
+        //{
+        //    gameObject.SetActive(false);
+        //    personalized.SetActive(true);
+        //}
             
 
         focusCount++;
