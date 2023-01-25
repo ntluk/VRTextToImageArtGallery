@@ -43,6 +43,7 @@ public class GalleryManager : MonoBehaviour
     private int focusCount = 0;
     private bool isFlickering = false;
     private bool sent = false;
+    private bool userIsOriented = false;
 
     private System.Random rnd;
     private float timeDelay;
@@ -64,14 +65,10 @@ public class GalleryManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown("space"))
-        {
-            Debug.Log("space");
-            manageInput();
-        }
-
-        CheckEyeFocus();
-        //sender.sendString("test");
-        //sendPrompt();
+            ManageInput();
+        
+        if (userIsOriented == true)
+            CheckEyeFocus();
     }
 
     private void SelectFromPool()
@@ -301,24 +298,26 @@ public class GalleryManager : MonoBehaviour
             return false;
     }
 
-    private void manageInput()
+    private void ManageInput()
     {
-        if (personalized.activeSelf == true) 
+        if (personalized.activeSelf)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        else if (sent == true)
+        else if (sent)
         {
             gameObject.SetActive(false);
             personalized.SetActive(true);
         }
+        else if (!sent && userIsOriented)
+            SendPrompt();
         else
-            sendPrompt();
+            userIsOriented = true;
     }
 
-    private void sendPrompt()
+    private void SendPrompt()
     {
-        if (sent == false)
+        if (!sent)
         {
             sender.sendString(finalPrompt);
             sent = true;
