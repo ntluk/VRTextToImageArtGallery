@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Tobii.XR;
 using TMPro;
 
@@ -62,13 +63,15 @@ public class GalleryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            Debug.Log("space");
+            manageInput();
+        }
+
         CheckEyeFocus();
         //sender.sendString("test");
-        if (swapCount > 10 && sent == false)
-        {
-            sender.sendString(finalPrompt);
-            sent = true;
-        }
+        //sendPrompt();
     }
 
     private void SelectFromPool()
@@ -96,7 +99,7 @@ public class GalleryManager : MonoBehaviour
         {
             
             focused = TobiiXR.FocusedObjects[0].GameObject;
-            Debug.Log(focused.transform.parent.parent.parent.name);
+            //Debug.Log(focused.transform.parent.parent.parent.name);
             if (focusedLast.Contains(focused.name))
                 focusTime++;
             focusedLast += focused.name;
@@ -296,6 +299,30 @@ public class GalleryManager : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    private void manageInput()
+    {
+        if (personalized.activeSelf == true) 
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
+        }
+        else if (sent == true)
+        {
+            gameObject.SetActive(false);
+            personalized.SetActive(true);
+        }
+        else
+            sendPrompt();
+    }
+
+    private void sendPrompt()
+    {
+        if (sent == false)
+        {
+            sender.sendString(finalPrompt);
+            sent = true;
+        }
     }
 
     IEnumerator FlickerLight(GameObject swapTarget)
