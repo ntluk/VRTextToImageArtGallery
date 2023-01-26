@@ -36,6 +36,7 @@ public class GalleryManager : MonoBehaviour
     public GameObject personalPrefab;
 
     private GameObject focused;
+    private string focusedPictureFrame;
     private String finalPrompt = "";
     private String focusedLast = "";
     private String changedLast = "";
@@ -108,9 +109,11 @@ public class GalleryManager : MonoBehaviour
             
             int pos = rnd.Next(0, pictureSelection.Count);
 
-         
-            
-            switch (focused.transform.parent.parent.parent.name)
+            if (focused.transform.parent.parent.parent != null)
+                focusedPictureFrame = focused.transform.parent.parent.parent.name;
+
+
+            switch (focusedPictureFrame)
             {
                 case "PictureF_a":
                     if (pictureSelection.Count < 1)
@@ -213,11 +216,11 @@ public class GalleryManager : MonoBehaviour
 
             if (focusedBefore.Contains(focused.name) && IsStillInFocus() && !sent)
             {
-                if (!finalPrompt.Contains(focused.name))
+                if (!finalPrompt.Contains(focused.name) && !focused.name.Contains("(Clone)"))
                     finalPrompt += focused.name +", ";
                 if (!finalPrompt.Contains(focused.GetComponent<Text>().text))
                     finalPrompt += focused.GetComponent<Text>().text + ", ";
-                Debug.Log(finalPrompt);
+                //Debug.Log(finalPrompt);
             }
 
             focusedBefore.Add(focused.name);
@@ -353,6 +356,9 @@ public class GalleryManager : MonoBehaviour
         {
             gameObject.SetActive(false);
             personalized.SetActive(true);
+            string[] t = finalPrompt.ToString().Split(new[] { ',' }, 2);
+            string title = t[0];
+            personalized.GetComponentInChildren<TextMeshPro>().text = title;
         }
         else if (!sent && userIsOriented)
             SendPrompt();
