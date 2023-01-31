@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9118474475835645608}
   - component: {fileID: 4192805061106507310}
   m_Layer: 0
-  m_Name: clouds
+  m_Name: inner church wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,15 +29,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4361993599956939479}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.185}
-  m_LocalScale: {x: 0.33, y: 0.09, z: 0.009999999}
+  m_LocalPosition: {x: 0, y: 0, z: -0.22}
+  m_LocalScale: {x: 0.27, y: 0.12, z: 0.009999999}
   m_Children: []
   m_Father: {fileID: 7334653946728735552}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.115, y: 0.694}
+  m_AnchoredPosition: {x: -1.115, y: 0.373}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &7207420661626247702
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 7561925303441857642}
   - component: {fileID: 185351756555281777}
   m_Layer: 0
-  m_Name: ruins
+  m_Name: ' crowd of worshippers'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +159,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6034882446945203494}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0444}
+  m_LocalPosition: {x: 0, y: 0, z: -0.056}
   m_LocalScale: {x: 0.57, y: 0.15, z: 0.009999999}
   m_Children: []
   m_Father: {fileID: 7334653946728735552}
@@ -167,7 +167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.115, y: 0.1845}
+  m_AnchoredPosition: {x: -1.115, y: 0.195}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &6537832065579060615
@@ -514,7 +514,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: digital illustration, trending on artstation
+  m_Text: digital illustration, painting
 --- !u!1 &7334653945541049699
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 7334653945541049702}
   - component: {fileID: 7334653945541049697}
   m_Layer: 0
-  m_Name: tower of babel
+  m_Name: tree with yellow leafs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,15 +544,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7334653945541049699}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0891}
-  m_LocalScale: {x: 0.26, y: 0.5, z: 0.009999999}
+  m_LocalPosition: {x: 0, y: 0, z: 0.083}
+  m_LocalScale: {x: 0.29, y: 0.41, z: 0.009999999}
   m_Children: []
   m_Father: {fileID: 7334653946728735552}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.115, y: 0.4785}
+  m_AnchoredPosition: {x: -1.115, y: 0.518}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &7334653945541049701
@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 7334653946095741215}
   - component: {fileID: 7334653946095741214}
   m_Layer: 0
-  m_Name: mountain
+  m_Name: church windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -674,15 +674,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7334653946095741208}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.127}
-  m_LocalScale: {x: 0.21, y: 0.3, z: 0.009999999}
+  m_LocalPosition: {x: 0, y: 0, z: -0.224}
+  m_LocalScale: {x: 0.27, y: 0.24, z: 0.009999999}
   m_Children: []
   m_Father: {fileID: 7334653946728735552}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.115, y: 0.49}
+  m_AnchoredPosition: {x: -1.115, y: 0.595}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &7334653946095741666
