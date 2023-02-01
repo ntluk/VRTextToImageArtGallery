@@ -46,6 +46,7 @@ public class GalleryManager : MonoBehaviour
     private bool sent = false;
     private bool userIsOriented = false;
     private bool removeFrames = false;
+    private bool cooldown = false;
 
     private System.Random rnd;
     private float timeDelay;
@@ -72,6 +73,10 @@ public class GalleryManager : MonoBehaviour
         
         if (userIsOriented == true)
             CheckEyeFocus();
+
+        if (removeFrames && !cooldown)
+            StartCoroutine(RemovePictureFrames());
+        
 
         //if(remainingPictureFrames < 4)
         //   SendPrompt();
@@ -251,13 +256,13 @@ public class GalleryManager : MonoBehaviour
 
     private void RemovePictureFrame(GameObject frameInFocus, GameObject swapTarget)
     {
-        if (removeFrames && pictureSelection.Count < 1 && pictureFrames.Count > 2)
-        {
-            swapTarget.SetActive(false);
-            frameInFocus.SetActive(false);
-            pictureFrames.Remove(swapTarget);
-            pictureFrames.Remove(frameInFocus);
-        }
+        //if (removeFrames && pictureSelection.Count < 1 && pictureFrames.Count > 2)
+        //{
+        //    swapTarget.SetActive(false);
+        //    frameInFocus.SetActive(false);
+        //    pictureFrames.Remove(swapTarget);
+        //    pictureFrames.Remove(frameInFocus);
+        //}
 
     }
     private void CheckSwapCount(GameObject swapTarget)
@@ -381,6 +386,17 @@ public class GalleryManager : MonoBehaviour
             sender.sendString(finalPrompt);
             sent = true;
         }
+    }
+    IEnumerator RemovePictureFrames()
+    {
+        cooldown = true;
+        int pos = rnd.Next(0, pictureFrames.Count);
+
+        pictureFrames[pos].SetActive(false);
+        pictureFrames.Remove(pictureFrames[pos]);
+
+        yield return new WaitForSeconds(2);
+        cooldown = false;
     }
 
     //IEnumerator FlickerLight(GameObject swapTarget)
