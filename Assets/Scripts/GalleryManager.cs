@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Tobii.XR;
 using TMPro;
+using System.Linq;
 
 
 // GalleryManager 
@@ -78,8 +79,16 @@ public class GalleryManager : MonoBehaviour
             StartCoroutine(RemovePictureFrames());
         
 
-        //if(remainingPictureFrames < 4)
-        //   SendPrompt();
+        if(pictureFrames.Count == 0)
+        {
+            gameObject.SetActive(false);
+            personalized.SetActive(true);
+
+            string[] t = finalPrompt.ToString().Split(new[] { ',' }, 2);
+            string title = t[0].ToUpper();
+            personalized.GetComponentInChildren<TextMeshPro>().text = title;
+        }
+        
     }
 
     private void SelectFromPool()
@@ -223,6 +232,16 @@ public class GalleryManager : MonoBehaviour
 
             if (focusedBefore.Contains(focused.name) && IsStillInFocus() && !sent)
             {
+                var list = new List<string> { "a", "b", "a", "c", "a", "b" };
+                var q = list.GroupBy(x => x)
+                            .Select(g => new { Value = g.Key, Count = g.Count() })
+                            .OrderByDescending(x => x.Count);
+
+                foreach (var x in q)
+                {
+                    Console.WriteLine("Value: " + x.Value + " Count: " + x.Count);
+                }
+
                 if (!finalPrompt.Contains(focused.name) && !focused.name.Contains("(Clone)"))
                     finalPrompt += focused.name +", ";
                 if (!finalPrompt.Contains(focused.GetComponent<Text>().text))
@@ -395,7 +414,7 @@ public class GalleryManager : MonoBehaviour
         pictureFrames[pos].SetActive(false);
         pictureFrames.Remove(pictureFrames[pos]);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         cooldown = false;
     }
 
