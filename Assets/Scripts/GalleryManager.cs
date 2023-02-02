@@ -17,6 +17,7 @@ public class GalleryManager : MonoBehaviour
     public List<GameObject> pictureSelection = new List<GameObject>();
     private List<String> flickeringLights = new List<String>();
     private List<String> focusedBefore = new List<String>();
+    private List<String> styles = new List<String>();
 
     public GameObject pictureF_a;
     public GameObject pictureF_b;
@@ -43,11 +44,13 @@ public class GalleryManager : MonoBehaviour
     private String changedLast = "";
     private int swapCount = 0;
     private int focusCount = 0;
+    private int numerOfKeywords = 0;
     private bool isFlickering = false;
     private bool sent = false;
     private bool userIsOriented = false;
     private bool removeFrames = false;
     private bool cooldown = false;
+    private bool styleAdded = false;
 
     private System.Random rnd;
     private float timeDelay;
@@ -232,24 +235,46 @@ public class GalleryManager : MonoBehaviour
 
             if (focusedBefore.Contains(focused.name) && IsStillInFocus() && !sent)
             {
-                var list = new List<string> { "a", "b", "a", "c", "a", "b" };
-                var q = list.GroupBy(x => x)
+                //var list = new List<string> { "a", "b", "a", "c", "a", "b" };
+                var q = focusedBefore.GroupBy(x => x)
                             .Select(g => new { Value = g.Key, Count = g.Count() })
                             .OrderByDescending(x => x.Count);
+                var s = styles.GroupBy(x => x)
+                           .Select(s => new { Value = s.Key, Count = s.Count() })
+                           .OrderByDescending(x => x.Count);
+                //foreach (var x in q)
+                //{
+                //    Console.WriteLine("Value: " + x.Value + " Count: " + x.Count);
+                //}
 
-                foreach (var x in q)
+                if (numerOfKeywords < 3 && !finalPrompt.Contains(q.ElementAt(0).Value) && !q.ElementAt(0).Value.Contains("(Clone)"))
                 {
-                    Console.WriteLine("Value: " + x.Value + " Count: " + x.Count);
+                    finalPrompt += "(" + q.ElementAt(0).Value + ")" + ", ";
+                    numerOfKeywords++;
                 }
 
-                if (!finalPrompt.Contains(focused.name) && !focused.name.Contains("(Clone)"))
-                    finalPrompt += focused.name +", ";
-                if (!finalPrompt.Contains(focused.GetComponent<Text>().text))
-                    finalPrompt += focused.GetComponent<Text>().text + ", ";
-                //Debug.Log(finalPrompt);
+                if (numerOfKeywords < 3 && !finalPrompt.Contains(q.ElementAt(1).Value) && !q.ElementAt(1).Value.Contains("(Clone)"))
+                {
+                    finalPrompt += q.ElementAt(1).Value + ", ";
+                    numerOfKeywords++;
+                }
+
+                if (numerOfKeywords < 3 && !finalPrompt.Contains(styles[0]) && !styleAdded)
+                {
+                    finalPrompt += s.ElementAt(0).Value + ", ";
+                    styleAdded = true;
+                    numerOfKeywords++;
+                }
+                    
+                //if (!finalPrompt.Contains(focused.name) && !focused.name.Contains("(Clone)"))
+                //    finalPrompt += focused.name +", ";
+                //if (!finalPrompt.Contains(focused.GetComponent<Text>().text))
+                //    finalPrompt += focused.GetComponent<Text>().text + ", ";
+                Debug.Log(finalPrompt);
             }
 
             focusedBefore.Add(focused.name);
+            styles.Add(focused.GetComponent<Text>().text);
         }
     }
 

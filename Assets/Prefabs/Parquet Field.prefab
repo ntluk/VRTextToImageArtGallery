@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 2718097926194722076}
   - component: {fileID: 2718097926194722079}
   m_Layer: 0
-  m_Name: flower field i the form of parquet flooring
+  m_Name: flower field in the form of parquet flooring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

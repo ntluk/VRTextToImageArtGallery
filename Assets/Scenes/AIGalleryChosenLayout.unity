@@ -915,8 +915,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290354174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.023, y: -0.013916492, z: -0.178}
-  m_LocalScale: {x: 0.6, y: 1, z: 1}
+  m_LocalPosition: {x: -0.701, y: -0.013916492, z: 0.41}
+  m_LocalScale: {x: 0.55, y: 1, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1338,7 +1338,7 @@ GameObject:
   - component: {fileID: 391428671}
   - component: {fileID: 391428670}
   m_Layer: 0
-  m_Name: PictureL_b
+  m_Name: PictureL_F1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1357,7 +1357,7 @@ RectTransform:
   m_Children:
   - {fileID: 272179016}
   m_Father: {fileID: 854315930}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2023,7 +2023,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 854315930}
-  m_RootOrder: 32
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 50, y: -307.4, z: 0}
 --- !u!108 &472271886
 Light:
@@ -2564,7 +2564,7 @@ GameObject:
   - component: {fileID: 632174781}
   - component: {fileID: 632174780}
   m_Layer: 0
-  m_Name: PictureF_b
+  m_Name: PictureL_B1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2583,7 +2583,7 @@ RectTransform:
   m_Children:
   - {fileID: 1604582311}
   m_Father: {fileID: 854315930}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2913,7 +2913,7 @@ RectTransform:
   m_Children:
   - {fileID: 583914428}
   m_Father: {fileID: 854315930}
-  m_RootOrder: 35
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3195,7 +3195,7 @@ GameObject:
   - component: {fileID: 690271882}
   - component: {fileID: 690271881}
   m_Layer: 0
-  m_Name: PictureF_c
+  m_Name: PictureL_C1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3214,7 +3214,7 @@ RectTransform:
   m_Children:
   - {fileID: 1485908613}
   m_Father: {fileID: 854315930}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3771,7 +3771,7 @@ RectTransform:
   m_Children:
   - {fileID: 64680418}
   m_Father: {fileID: 854315930}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4216,12 +4216,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1602478232}
+  - {fileID: 1297615313}
   - {fileID: 632174779}
   - {fileID: 690271880}
   - {fileID: 2026931709}
   - {fileID: 1230648279}
   - {fileID: 391428669}
-  - {fileID: 1297615313}
   - {fileID: 1867432017}
   - {fileID: 1203316663}
   - {fileID: 1416391897}
@@ -4247,11 +4247,11 @@ Transform:
   - {fileID: 1900693803}
   - {fileID: 458404050}
   - {fileID: 460589162}
-  - {fileID: 472271885}
   - {fileID: 1633597140}
   - {fileID: 830273329}
   - {fileID: 678561721}
   - {fileID: 2090218484}
+  - {fileID: 472271885}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4999,7 +4999,7 @@ GameObject:
   - component: {fileID: 1230648281}
   - component: {fileID: 1230648280}
   m_Layer: 0
-  m_Name: PictureL_a
+  m_Name: PictureL_E1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5018,7 +5018,7 @@ RectTransform:
   m_Children:
   - {fileID: 831513894}
   m_Father: {fileID: 854315930}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5215,7 +5215,7 @@ GameObject:
   - component: {fileID: 1297615315}
   - component: {fileID: 1297615314}
   m_Layer: 0
-  m_Name: PictureL_c
+  m_Name: PictureL_A2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5234,7 +5234,7 @@ RectTransform:
   m_Children:
   - {fileID: 423258911}
   m_Father: {fileID: 854315930}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5593,11 +5593,11 @@ PrefabInstance:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1589335878}
+      objectReference: {fileID: 1917815008}
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1481976976}
+      objectReference: {fileID: 1472312963}
     - target: {fileID: 4000013889601590, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -6509,7 +6509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 596e593361e094a43934c013fa0b5764, type: 3}
---- !u!43 &1481976976
+--- !u!43 &1472312963
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7200,41 +7200,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564002545}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &1589335878
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1592044351
 GameObject:
   m_ObjectHideFlags: 0
@@ -7359,7 +7324,7 @@ GameObject:
   - component: {fileID: 1602478234}
   - component: {fileID: 1602478233}
   m_Layer: 0
-  m_Name: PictureF_a
+  m_Name: PictureL_A1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7598,7 +7563,7 @@ RectTransform:
   m_Children:
   - {fileID: 375302074}
   m_Father: {fileID: 854315930}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8747,6 +8712,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900693802}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1917815008
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1001 &1981028173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9083,7 +9083,7 @@ GameObject:
   - component: {fileID: 2026931711}
   - component: {fileID: 2026931710}
   m_Layer: 0
-  m_Name: PictureF_d
+  m_Name: PictureL_D1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9102,7 +9102,7 @@ RectTransform:
   m_Children:
   - {fileID: 1426310117}
   m_Father: {fileID: 854315930}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9314,7 +9314,7 @@ RectTransform:
   m_Children:
   - {fileID: 1981028174}
   m_Father: {fileID: 854315930}
-  m_RootOrder: 36
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
