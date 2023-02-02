@@ -19,20 +19,43 @@ public class GalleryManager : MonoBehaviour
     private List<String> focusedBefore = new List<String>();
     private List<String> styles = new List<String>();
 
-    public GameObject pictureF_a;
-    public GameObject pictureF_b;
-    public GameObject pictureF_c;
-    public GameObject pictureF_d;
-    public GameObject pictureL_a;
-    public GameObject pictureL_b;
-    public GameObject pictureL_c;
-    public GameObject pictureR_a;
-    public GameObject pictureR_b;
-    public GameObject pictureR_c;
-    public GameObject pictureB_a;
-    public GameObject pictureB_b;
-    public GameObject pictureB_c;
-    public GameObject pictureB_d;
+    public GameObject pictureF_A1;
+    public GameObject pictureF_A2;
+    public GameObject pictureF_A3;
+    public GameObject pictureF_B1;
+    public GameObject pictureF_B2;
+    public GameObject pictureF_B3;
+    public GameObject pictureF_C1;
+    public GameObject pictureF_C2;
+    public GameObject pictureF_C3;
+    public GameObject pictureF_D1;
+    public GameObject pictureF_D2;
+    public GameObject pictureF_D3;
+    public GameObject pictureF_E1;
+    public GameObject pictureF_E2;
+    public GameObject pictureF_E3;
+    public GameObject pictureF_F1;
+    public GameObject pictureF_F2;
+    public GameObject pictureF_F3;
+
+    public GameObject pictureL_A1;
+    public GameObject pictureL_A2;
+    public GameObject pictureL_A3;
+    public GameObject pictureL_B1;
+    public GameObject pictureL_B2;
+    public GameObject pictureL_B3;
+    public GameObject pictureL_C1;
+    public GameObject pictureL_C2;
+    public GameObject pictureL_C3;
+    public GameObject pictureL_D1;
+    public GameObject pictureL_D2;
+    public GameObject pictureL_D3;
+    public GameObject pictureL_E1;
+    public GameObject pictureL_E2;
+    public GameObject pictureL_E3;
+    public GameObject pictureL_F1;
+    public GameObject pictureL_F2;
+    public GameObject pictureL_F3;
 
     public GameObject personalized;
     public GameObject personalPrefab;
@@ -58,6 +81,8 @@ public class GalleryManager : MonoBehaviour
     private int remainingPictureFrames = 14;
 
     private UDPSend sender = new UDPSend();
+
+   
 
     // Start is called before the first frame update
     void Start()
@@ -134,270 +159,197 @@ public class GalleryManager : MonoBehaviour
 
             switch (focusedPictureFrame)
             {
-                case "PictureF_a":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureF_a, pictureB_d);
-                    else if (!changedLast.Equals("F_a"))
-                        SwapPicture("F_a", pictureB_d, pos);
+                case "PictureF_A1":
+                    ResolveCase("pictureF_A1", pictureF_D3, pos);
                     break;
 
-                case "PictureF_b":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureF_b, pictureB_c);
-                    else if (!changedLast.Equals("F_b"))
-                        SwapPicture("F_b", pictureB_c, pos);
+                case "PictureF_A2":
+                    ResolveCase("pictureF_A2", pictureF_D2, pos);
                     break;
 
-                case "PictureF_c":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureF_c, pictureB_b);
-                    else if (!changedLast.Equals("F_c"))
-                        SwapPicture("F_c", pictureB_b, pos);
+                case "PictureF_A3":
+                    ResolveCase("pictureF_A3", pictureF_D1, pos);
                     break;
 
-                case "PictureF_d":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureF_d, pictureB_a);
-                    else if (!changedLast.Equals("F_d"))
-                        SwapPicture("F_d", pictureB_a, pos);
+                case "PictureF_B1":
+                    ResolveCase("pictureF_B1", pictureF_E3, pos);
                     break;
 
-                case "PictureL_a":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureL_a, pictureR_c);
-                    else if (!changedLast.Equals("L_a"))
-                        SwapPicture("L_a", pictureR_c, pos);
+                case "PictureF_B2":
+                    ResolveCase("pictureF_B2", pictureF_E2, pos);
                     break;
 
-                case "PictureL_b":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureL_b, pictureR_b);
-                    else if (!changedLast.Equals("L_b"))
-                        SwapPicture("L_b", pictureR_b, pos);
+                case "PictureF_B3":
+                    ResolveCase("pictureF_B3", pictureF_E1, pos);
                     break;
 
-                case "PictureL_c":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureL_c, pictureR_a);
-                    else if (!changedLast.Equals("L_c"))
-                        SwapPicture("L_c", pictureR_a, pos);
+                case "PictureF_C1":
+                    ResolveCase("pictureF_C1", pictureF_F3, pos);
                     break;
 
-                case "PictureR_a":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureR_a, pictureL_c);
-                    else if (!changedLast.Equals("R_a"))
-                        SwapPicture("R_a", pictureL_c, pos);
+                case "PictureF_C2":
+                    ResolveCase("pictureF_C2", pictureF_F2, pos);
                     break;
 
-                case "PictureR_b":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureR_b, pictureL_b);
-                    else if (!changedLast.Equals("R_b"))
-                        SwapPicture("R_b", pictureL_b, pos);
+                case "PictureF_C3":
+                    ResolveCase("pictureF_C3", pictureF_F1, pos);
                     break;
 
-                case "PictureR_c":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureR_c, pictureL_a);
-                    else if (!changedLast.Equals("R_c"))
-                        SwapPicture("R_c", pictureL_a, pos);
+                case "PictureF_D1":
+                    ResolveCase("pictureF_D1", pictureF_A3, pos);
                     break;
 
-                case "PictureB_a":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureB_a, pictureF_d);
-                    else if (!changedLast.Equals("B_a"))
-                        SwapPicture("B_a", pictureF_d, pos);
+                case "PictureF_D2":
+                    ResolveCase("pictureF_D2", pictureF_A2, pos);
                     break;
 
-                case "PictureB_b":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureB_b, pictureF_c);
-                    else if (!changedLast.Equals("B_b"))
-                        SwapPicture("B_b", pictureF_c, pos);
+                case "PictureF_D3":
+                    ResolveCase("pictureF_D3", pictureF_A1, pos);
                     break;
 
-                case "PictureB_c":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureB_c, pictureF_b);
-                    else if (!changedLast.Equals("B_c"))
-                        SwapPicture("B_c", pictureF_b, pos);
+                case "PictureF_E1":
+                    ResolveCase("pictureF_E1", pictureF_B3, pos);
                     break;
 
-                case "PictureB_d":
-                    if (pictureSelection.Count < 1)
-                        RemovePictureFrame(pictureB_d, pictureF_a);
-                    else if (!changedLast.Equals("B_d"))
-                        SwapPicture("B_d", pictureF_a, pos);
+                case "PictureF_E2":
+                    ResolveCase("pictureF_E2", pictureF_B2, pos);
+                    break;
+
+                case "PictureF_E3":
+                    ResolveCase("pictureF_E3", pictureF_B1, pos);
+                    break;
+
+                case "PictureF_F1":
+                    ResolveCase("pictureF_F1", pictureF_C3, pos);
+                    break;
+
+                case "PictureF_F2":
+                    ResolveCase("pictureF_F2", pictureF_C2, pos);
+                    break;
+
+                case "PictureF_F3":
+                    ResolveCase("pictureF_F3", pictureF_C1, pos);
+                    break;
+
+                case "PictureL_A1":
+                    ResolveCase("pictureL_A1", pictureL_D3, pos);
+                    break;
+
+                case "PictureL_A2":
+                    ResolveCase("pictureL_A2", pictureL_D2, pos);
+                    break;
+
+                case "PictureL_A3":
+                    ResolveCase("pictureL_A3", pictureL_D1, pos);
+                    break;
+
+                case "PictureL_B1":
+                    ResolveCase("pictureL_B1", pictureL_E3, pos);
+                    break;
+
+                case "PictureL_B2":
+                    ResolveCase("pictureL_B2", pictureL_E2, pos);
+                    break;
+
+                case "PictureL_B3":
+                    ResolveCase("pictureL_B3", pictureL_E1, pos);
+                    break;
+
+                case "PictureL_C1":
+                    ResolveCase("pictureL_C1", pictureL_F3, pos);
+                    break;
+
+                case "PictureL_C2":
+                    ResolveCase("pictureL_C2", pictureL_F2, pos);
+                    break;
+
+                case "PictureL_C3":
+                    ResolveCase("pictureL_C3", pictureL_F1, pos);
+                    break;
+
+                case "PictureL_D1":
+                    ResolveCase("pictureL_D1", pictureL_A3, pos);
+                    break;
+
+                case "PictureL_D2":
+                    ResolveCase("pictureL_D2", pictureL_A2, pos);
+                    break;
+
+                case "PictureL_D3":
+                    ResolveCase("pictureL_D3", pictureL_A1, pos);
+                    break;
+
+                case "PictureL_E1":
+                    ResolveCase("pictureL_E1", pictureL_B3, pos);
+                    break;
+
+                case "PictureL_E2":
+                    ResolveCase("pictureL_E2", pictureL_B2, pos);
+                    break;
+
+                case "PictureL_E3":
+                    ResolveCase("pictureL_E3", pictureL_B1, pos);
+                    break;
+
+                case "PictureL_F1":
+                    ResolveCase("pictureL_F1", pictureL_C3, pos);
+                    break;
+
+                case "PictureL_F2":
+                    ResolveCase("pictureL_F2", pictureL_C2, pos);
+                    break;
+
+                case "PictureL_F3":
+                    ResolveCase("pictureL_F3", pictureL_C1, pos);
                     break;
             }
 
-            if (focusedBefore.Contains(focused.name) && IsStillInFocus() && !sent)
-            {
-                //var list = new List<string> { "a", "b", "a", "c", "a", "b" };
-                var q = focusedBefore.GroupBy(x => x)
-                            .Select(g => new { Value = g.Key, Count = g.Count() })
-                            .OrderByDescending(x => x.Count);
-                var s = styles.GroupBy(x => x)
-                           .Select(s => new { Value = s.Key, Count = s.Count() })
-                           .OrderByDescending(x => x.Count);
-                //foreach (var x in q)
-                //{
-                //    Console.WriteLine("Value: " + x.Value + " Count: " + x.Count);
-                //}
-
-                if (numerOfKeywords < 3 && !finalPrompt.Contains(q.ElementAt(0).Value) && !q.ElementAt(0).Value.Contains("(Clone)"))
-                {
-                    finalPrompt += "(" + q.ElementAt(0).Value + ")" + ", ";
-                    numerOfKeywords++;
-                }
-
-                if (numerOfKeywords < 3 && !finalPrompt.Contains(q.ElementAt(1).Value) && !q.ElementAt(1).Value.Contains("(Clone)"))
-                {
-                    finalPrompt += q.ElementAt(1).Value + ", ";
-                    numerOfKeywords++;
-                }
-
-                if (numerOfKeywords < 3 && !finalPrompt.Contains(styles[0]) && !styleAdded)
-                {
-                    finalPrompt += s.ElementAt(0).Value + ", ";
-                    styleAdded = true;
-                    numerOfKeywords++;
-                }
+            //if (focusedBefore.Contains(focused.name) && IsStillInFocus() && !sent)
+            //{
+                
                     
-                //if (!finalPrompt.Contains(focused.name) && !focused.name.Contains("(Clone)"))
-                //    finalPrompt += focused.name +", ";
-                //if (!finalPrompt.Contains(focused.GetComponent<Text>().text))
-                //    finalPrompt += focused.GetComponent<Text>().text + ", ";
-                Debug.Log(finalPrompt);
-            }
+            //    //if (!finalPrompt.Contains(focused.name) && !focused.name.Contains("(Clone)"))
+            //    //    finalPrompt += focused.name +", ";
+            //    //if (!finalPrompt.Contains(focused.GetComponent<Text>().text))
+            //    //    finalPrompt += focused.GetComponent<Text>().text + ", ";
+            //    Debug.Log(finalPrompt);
+            //}
 
             focusedBefore.Add(focused.name);
-            styles.Add(focused.GetComponent<Text>().text);
+            if(focused.GetComponent<Text>() != null)
+                styles.Add(focused.GetComponent<Text>().text);
         }
+    }
+
+    private void ResolveCase(String inFocus, GameObject swapTarget, int picturePosInSelection)
+    {
+        if (!changedLast.Equals(inFocus) && pictureSelection.Count != 0)
+            SwapPicture(inFocus, swapTarget, picturePosInSelection);
     }
 
     private void SwapPicture(String inFocus, GameObject swapTarget, int picturePosInSelection)
     {
-        Debug.Log("swapping picture");
-        GameObject pictureToSet = pictureSelection[picturePosInSelection];
-
         if(swapTarget != null)
         {
+            Debug.Log("swapping picture");
+
+            GameObject pictureToSet = pictureSelection[picturePosInSelection];
             Instantiate(pictureToSet, swapTarget.transform);
             Destroy(swapTarget.transform.GetChild(0).gameObject);
             pictureSelection.Remove(pictureToSet);
+
+            changedLast = inFocus;
         }
        
-        // ChangeLable(swapTarget, pictureToSet);
-        changedLast = inFocus;
-        swapCount++;
-
-        
-        //CheckSwapCount(swapTarget);
     }
 
-    private void RemovePictureFrame(GameObject frameInFocus, GameObject swapTarget)
-    {
-        //if (removeFrames && pictureSelection.Count < 1 && pictureFrames.Count > 2)
-        //{
-        //    swapTarget.SetActive(false);
-        //    frameInFocus.SetActive(false);
-        //    pictureFrames.Remove(swapTarget);
-        //    pictureFrames.Remove(frameInFocus);
-        //}
-
-    }
-    private void CheckSwapCount(GameObject swapTarget)
-    {
-        switch (swapCount)
-        {
-            case 3:
-                // start flicker on first fade-out-side
-               
-                //StartCoroutine(FlickerLight(swapTarget));
-                break;
-
-            case 6:
-                //StartCoroutine(FlickerLight(swapTarget));
-                // start fading out frames
-                //if (isFlickering && flickeringLights.Contains(swapTarget.name))
-                //    swapTarget.transform.parent.gameObject.SetActive(false);
-                
-                break;
-
-            case 7:
-                //StartCoroutine(FlickerLight(swapTarget));
-                // start fading out frames
-                //if (isFlickering && flickeringLights.Contains(swapTarget.name))
-                //    swapTarget.transform.parent.gameObject.SetActive(false);
-                break;
-
-            case 8:
-                //StartCoroutine(FlickerLight(swapTarget));
-                // start fading out frames
-                //if (isFlickering && flickeringLights.Contains(swapTarget.name))
-                //    swapTarget.transform.parent.gameObject.SetActive(false);
-                break;
-
-            case 9:
-                
-                //StartCoroutine(FlickerLight(swapTarget));
-                //// start fading out frames
-                //if (isFlickering && flickeringLights.Contains(swapTarget.name))
-                //    swapTarget.transform.parent.gameObject.SetActive(false);
-               
-                break;
-
-            //case 10:
-            //    StartCoroutine(FlickerLight(swapTarget));
-            //    // start fading out frames
-            //    if (isFlickering && flickeringLights.Contains(swapTarget.name))
-            //        swapTarget.transform.parent.gameObject.SetActive(false);
-            //    break;
-
-            //case 11:
-            //    StartCoroutine(FlickerLight(swapTarget));
-            //    // start fading out frames
-            //    if (isFlickering && flickeringLights.Contains(swapTarget.name))
-            //        swapTarget.transform.parent.gameObject.SetActive(false);
-            //    break;
-
-            case 20:
-                //gen img
-                //gameObject.SetActive(false);
-                //personalized.SetActive(true);
-                break;
-        }
-
-        //if (pictureSelection.Count < 1)
-        //{
-        //    gameObject.SetActive(false);
-        //    personalized.SetActive(true);
-        //}
-            
-
-        focusCount++;
-        //CheckFocusCount();
-    }
-
-    //private void CheckFocusCount()
+    //private bool IsStillInFocus()
     //{
-    //    if (focusCount > 200 || pictureSelection.Count < 4)
-    //    {
-    //        //gameObject.SetActive(false);
-    //        //personalized.SetActive(true);
-    //    }
+    //    if (focusTime > 5 * 90)
+    //        return true;
+    //    else
+    //        return false;
     //}
-
-    private bool IsStillInFocus()
-    {
-        if (focusTime > 5 * 90)
-            return true;
-        else
-            return false;
-    }
 
     private void ManageInput()
     {
@@ -411,11 +363,15 @@ public class GalleryManager : MonoBehaviour
             personalized.SetActive(true);
             
             string[] t = finalPrompt.ToString().Split(new[] { ',' }, 2);
-            string title = t[0].ToUpper();
-            personalized.GetComponentInChildren<TextMeshPro>().text = title;
+            string title = t[0];
+            title.Replace("(", "").Replace(")", "");
+            //title = title.Remove(0);
+            //title = title.Remove(title.Length);
+            personalized.GetComponentInChildren<TextMeshPro>().text = title.ToUpper(); 
         }
         else if (!sent && userIsOriented)
         {
+            ConstructPrompt();
             SendPrompt();
             removeFrames = true;
         }
@@ -423,14 +379,35 @@ public class GalleryManager : MonoBehaviour
             userIsOriented = true;
     }
 
+    private void ConstructPrompt()
+    {
+        var sortedFeatures = focusedBefore.GroupBy(x => x)
+                    .Select(sortedFeatures => new { Value = sortedFeatures.Key, Count = sortedFeatures.Count() })
+                    .OrderByDescending(x => x.Count);
+
+        var sortedStyles = styles.GroupBy(x => x)
+                    .Select(sortedStyles => new { Value = sortedStyles.Key, Count = sortedStyles.Count() })
+                    .OrderByDescending(x => x.Count);
+
+        if (!finalPrompt.Contains(sortedFeatures.ElementAt(0).Value) && !sortedFeatures.ElementAt(0).Value.Contains("(Clone)"))
+            finalPrompt += "(" + sortedFeatures.ElementAt(0).Value + ")" + ", ";
+
+        if (!finalPrompt.Contains(sortedFeatures.ElementAt(1).Value) && !sortedFeatures.ElementAt(1).Value.Contains("(Clone)"))
+            finalPrompt += sortedFeatures.ElementAt(1).Value + ", ";
+
+        if (!finalPrompt.Contains(sortedStyles.ElementAt(0).Value))
+            finalPrompt += sortedStyles.ElementAt(0).Value + ", ";         
+    }
+
     private void SendPrompt()
     {
         if (!sent)
-        {
+        {    
             sender.sendString(finalPrompt);
             sent = true;
         }
     }
+
     IEnumerator RemovePictureFrames()
     {
         cooldown = true;
@@ -439,7 +416,7 @@ public class GalleryManager : MonoBehaviour
         pictureFrames[pos].SetActive(false);
         pictureFrames.Remove(pictureFrames[pos]);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.75f);
         cooldown = false;
     }
 
@@ -461,6 +438,5 @@ public class GalleryManager : MonoBehaviour
     //{
     //    swapTarget.GetComponentInChildren<TextMeshPro>().text = pictureToSet.name;
     //}
-
 }
 
