@@ -60,6 +60,9 @@ public class GalleryManager : MonoBehaviour
     public GameObject personalized;
     public GameObject personalPrefab;
 
+    public GameObject spotlight1;
+    public GameObject spotlight2;
+
     private GameObject focused;
     private string focusedPictureFrame;
     private String finalPrompt = "";
@@ -359,7 +362,7 @@ public class GalleryManager : MonoBehaviour
         }
         else if (sent)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             personalized.SetActive(true);
             
             string[] t = finalPrompt.ToString().Split(new[] { ',' }, 2);
@@ -374,6 +377,8 @@ public class GalleryManager : MonoBehaviour
             ConstructPrompt();
             SendPrompt();
             removeFrames = true;
+            spotlight1.SetActive(false);
+            spotlight2.SetActive(false);
         }
         else
             userIsOriented = true;
