@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Diagnostics;
-using UnityEngine.UI;
 using System.Linq;
 using System.Threading;
 
-/// <summary>
-/// Prompts go in, textures come out.
-/// </summary>
+
 public class LoadImage : MonoBehaviour
 {
     // [SerializeField] InputField input;
@@ -47,8 +44,7 @@ public class LoadImage : MonoBehaviour
             bInitialized = true;
            
         }
-      
-            
+          
         else if (outputStatus == OutputStatus.Unfinished && _strOutput.StartsWith("Outputs:"))
             outputStatus = OutputStatus.FinishedSuccessfully;
         else if (_strOutput.StartsWith(">> Could not generate image."))
@@ -69,7 +65,7 @@ public class LoadImage : MonoBehaviour
         UnityEngine.Debug.Log($" New file appeared! Loading {fileLatestPng.Name}");
 
         yield return new WaitUntil(() => !Utility.IsFileLocked(fileLatestPng));
-        yield return new WaitForSeconds(0.1f); // just give it some time
+        yield return new WaitForSeconds(0.1f);
 
         UnityEngine.Debug.Log($"Finished loading image.");
 
@@ -77,6 +73,5 @@ public class LoadImage : MonoBehaviour
         mat.mainTexture = Utility.texLoadImageSecure(fileLatestPng.FullName, mat.mainTexture as Texture2D);
         image.GetComponent<Renderer>().material = mat;
     }
-
-   
+ 
 }
