@@ -387,17 +387,21 @@ public class GalleryManager : MonoBehaviour
     private void ConstructPrompt()
     {
         var sortedFeatures = focusedBefore.GroupBy(x => x)
-                    .Select(sortedFeatures => new { Value = sortedFeatures.Key, Count = sortedFeatures.Count() })
+                    .Select(sortedFeatures => new { Value = 
+                    sortedFeatures.Key, Count = sortedFeatures.Count()})
                     .OrderByDescending(x => x.Count);
 
         var sortedStyles = styles.GroupBy(x => x)
-                    .Select(sortedStyles => new { Value = sortedStyles.Key, Count = sortedStyles.Count() })
+                    .Select(sortedStyles => new { Value = 
+                    sortedStyles.Key, Count = sortedStyles.Count()})
                     .OrderByDescending(x => x.Count);
 
-        if (!finalPrompt.Contains(sortedFeatures.ElementAt(0).Value) && !sortedFeatures.ElementAt(0).Value.Contains("(Clone)"))
+        if (!finalPrompt.Contains(sortedFeatures.ElementAt(0).Value) 
+            && !sortedFeatures.ElementAt(0).Value.Contains("(Clone)"))
             finalPrompt += "(" + sortedFeatures.ElementAt(0).Value + ")" + ", ";
 
-        if (!finalPrompt.Contains(sortedFeatures.ElementAt(1).Value) && !sortedFeatures.ElementAt(1).Value.Contains("(Clone)"))
+        if (!finalPrompt.Contains(sortedFeatures.ElementAt(1).Value) 
+            && !sortedFeatures.ElementAt(1).Value.Contains("(Clone)"))
             finalPrompt += sortedFeatures.ElementAt(1).Value + ", ";
 
         if (!finalPrompt.Contains(sortedStyles.ElementAt(0).Value))

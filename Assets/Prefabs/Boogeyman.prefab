@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 8907012585078389522}
   - component: {fileID: 8907012585078389521}
   - component: {fileID: 8907012585078389520}
+  - component: {fileID: 3011884087931070285}
   m_Layer: 0
   m_Name: Boogeyman
   m_TagString: Untagged
@@ -509,7 +510,7 @@ BoxCollider:
   m_GameObject: {fileID: 8907012585078389519}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 1.0000001, z: 6.1232336e-17}
   m_Center: {x: 0.00000023841858, y: 0, z: -0.000015258789}
@@ -547,6 +548,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: black and white theme with red accents
+--- !u!114 &3011884087931070285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8907012585078389519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca2cc563cc33f542a5d9f8f661184ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highLightMaterial: {fileID: 2100000, guid: 7b939e5e799d98a469f594828ebab52e, type: 2}
+  fireHapticsOnHightlight: 0
 --- !u!1 &8907012585921332176
 GameObject:
   m_ObjectHideFlags: 0
