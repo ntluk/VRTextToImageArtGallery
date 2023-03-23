@@ -28,14 +28,17 @@ public class PointerHandler : MonoBehaviour
     {
         if (e.target.GetComponent<MeshRenderer>() != null)
         {
-            // TODO: add quad name to prompt
+            GalleryManager.instance.focusedBefore.Add(e.target.name);
+            Debug.Log(GalleryManager.instance.focusedBefore);
+            if (e.target.GetComponent<Text>() != null)
+                GalleryManager.instance.styles.Add(e.target.GetComponent<Text>().text);
+            Debug.Log(GalleryManager.instance.styles);
+
             if (e.target.GetComponent<MeshRenderer>().material == selectionMaterial)
                 e.target.GetComponent<MeshRenderer>().material = highlightMaterial;
             e.target.GetComponent<MeshRenderer>().material = selectionMaterial;
-            Debug.Log("Quad was clicked");
-            
-        }
-        
+            Debug.Log("Quad was clicked"); 
+        } 
     }
 
     public void PointerInside(object sender, PointerEventArgs e)
@@ -45,7 +48,6 @@ public class PointerHandler : MonoBehaviour
             e.target.GetComponent<MeshRenderer>().material = highlightMaterial;
             Debug.Log("Quad was entered");
         }
-       
     }
 
     public void PointerOutside(object sender, PointerEventArgs e)
