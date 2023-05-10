@@ -12,14 +12,14 @@ using System.Linq;
 // GalleryManager 
 public class GalleryManager : MonoBehaviour
 {
-    public static GalleryManager instance;
+    //public static GalleryManager instance;
 
     public List<GameObject> pictureFrames = new List<GameObject>();
     public List<GameObject> picturePool = new List<GameObject>();
     public List<GameObject> pictureSelection = new List<GameObject>();
     private List<String> flickeringLights = new List<String>();
-    public List<String> focusedBefore = new List<String>();
-    public List<String> styles = new List<String>();
+    private List<String> focusedBefore = new List<String>();
+    private List<String> styles = new List<String>();
 
     public GameObject pictureF_A1;
     public GameObject pictureF_A2;
