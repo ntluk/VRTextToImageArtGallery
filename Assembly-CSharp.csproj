@@ -77,10 +77,12 @@
     <Compile Include="Assets\Scripts\PictureFrameController.cs" />
     <Compile Include="Assets\modules\utility\RaycastTarget.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Developer Tools\Scripts\SimpleRotation.cs" />
+    <Compile Include="Assets\TexturePaint\TexturePaint.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Hand-Eye Coordination\Scripts\Grabbing\GazeGrab.cs" />
     <Compile Include="Assets\modules\utility\Utility.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Developer Tools\Scripts\HighlightAtGaze.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\UI\Scripts\UIPrinter.cs" />
+    <Compile Include="Assets\Scripts\PointerHandler.cs" />
     <Compile Include="Assets\Resources\RunStableDiffusionOnline.cs" />
     <Compile Include="Assets\modules\debuglog_output\OutputDebugLog.cs" />
     <Compile Include="Assets\Scripts\UDPSend.cs" />
@@ -92,30 +94,40 @@
     <Compile Include="Assets\modules\utility\ShortcutCreator.cs" />
     <Compile Include="Assets\Samples\Tobii XR SDK\3.0.1\Social\Scripts\MirroredAvatar.cs" />
     <Compile Include="Assets\Scripts\SendOSC.cs" />
-    <Compile Include="Assets\Scripts\PointerHandler.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\textures\poly\Poly - Rustic plaster texture like a wall of an exterior wall in high resolution\Made with Poly.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\textures\poly\Poly - Polished gray wood with a slightly greenish background in high resolution\Made with Poly.txt" />
+    <None Include="Assets\TexturePaint\TexturePaint.shader" />
+    <None Include="Assets\TexturePaint\MarkIlsands.shader" />
+    <None Include="Assets\textures\poly\Poly - yellow plaster, stucco, interior, extreme fine details\Made with Poly.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\textures\poly\Poly - walnut wood board, new looking, uniform, extreme fine details, high definition\Made with Poly.txt" />
     <None Include="Assets\Materials\Neues Textdokument (2).txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TexturePaint\FixIlsandEdges.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\textures\poly\Poly - Parquet, Hardwood Floor, wood flooring, high definition, close up,\Made with Poly.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TexturePaint\BrushShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TexturePaint\CombineMetalicSmoothness.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\textures\poly\Poly - herringbone wood parquet, arch viz, interior design, luxury parquet\Made with Poly.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -772,24 +784,6 @@
     </Reference>
     <Reference Include="Unity.XR.OpenXR.Features.RuntimeDebugger.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.XR.OpenXR.Features.RuntimeDebugger.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.CoreUtils">
-      <HintPath>Library\ScriptAssemblies\Unity.XR.CoreUtils.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.CoreUtils.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.XR.CoreUtils.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.Interaction.Toolkit.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.XR.Interaction.Toolkit.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.Interaction.Toolkit">
-      <HintPath>Library\ScriptAssemblies\Unity.XR.Interaction.Toolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

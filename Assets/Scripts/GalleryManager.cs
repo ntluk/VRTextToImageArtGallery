@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using Tobii.XR;
 using TMPro;
 using System.Linq;
+using System.IO;
 
 
 // GalleryManager 
@@ -465,7 +466,14 @@ public class GalleryManager : MonoBehaviour
 
         // adds the first element in sorted styles to the prompt + formatting
         if (!finalPrompt.Contains(sortedStyles.ElementAt(0).Value))
-            finalPrompt += sortedStyles.ElementAt(0).Value + ", ";         
+            finalPrompt += sortedStyles.ElementAt(0).Value + ", ";
+
+        string path = "C:/Users/Mirevi/source/repos/AIArtGalleryExtended/Prompt/prompt.txt";
+        //string path = "C:/Projects/ci/prompt.txt";
+
+        StreamWriter writer = new StreamWriter(path);
+        writer.WriteLine(finalPrompt);
+        writer.Close();
     }
 
     /// <summary>

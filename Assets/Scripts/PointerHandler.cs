@@ -7,11 +7,13 @@ using Valve.VR.Extras;
 
 public class PointerHandler : MonoBehaviour
 {
+    public GalleryManager gallery;
     public SteamVR_LaserPointer leftLaserPointer;
     public SteamVR_LaserPointer rightLaserPointer;
     public Material transparentMaterial;
     public Material highlightMaterial;
     public Material selectionMaterial;
+    private Material formerMat;
 
     void Awake()
     {
@@ -28,33 +30,41 @@ public class PointerHandler : MonoBehaviour
     {
         if (e.target.GetComponent<MeshRenderer>() != null)
         {
-            GalleryManager.instance.focusedBefore.Add(e.target.name);
-            Debug.Log(GalleryManager.instance.focusedBefore);
+            //GalleryManager.instance.focusedBefore.Add(e.target.name);
+            gallery.focusedBefore.Add(e.target.name);
+            Debug.Log(gallery.focusedBefore);
             if (e.target.GetComponent<Text>() != null)
-                GalleryManager.instance.styles.Add(e.target.GetComponent<Text>().text);
-            Debug.Log(GalleryManager.instance.styles);
+                gallery.styles.Add(e.target.GetComponent<Text>().text);
+            Debug.Log(gallery.styles);
 
-            if (e.target.GetComponent<MeshRenderer>().material == selectionMaterial)
-                e.target.GetComponent<MeshRenderer>().material = highlightMaterial;
-            e.target.GetComponent<MeshRenderer>().material = selectionMaterial;
+           
+           
+            if (e.target.GetComponent<MeshRenderer>().sharedMaterial == selectionMaterial)
+            {
+                e.target.GetComponent<MeshRenderer>().sharedMaterial = highlightMaterial;
+                gallery.focusedBefore.Remove(e.target.name);
+            }
+            e.target.GetComponent<MeshRenderer>().sharedMaterial = selectionMaterial;
             Debug.Log("Quad was clicked");
         }
     }
 
     public void PointerInside(object sender, PointerEventArgs e)
     {
-        if (e.target.GetComponent<MeshRenderer>() != null && e.target.GetComponent<MeshRenderer>().material != selectionMaterial)
+        if (e.target.GetComponent<MeshRenderer>() != null && e.target.GetComponent<MeshRenderer>().sharedMaterial != selectionMaterial)
         {
-            e.target.GetComponent<MeshRenderer>().material = highlightMaterial;
+            formerMat = e.target.GetComponent<MeshRenderer>().sharedMaterial;
+            e.target.GetComponent<MeshRenderer>().sharedMaterial = highlightMaterial;
             Debug.Log("Quad was entered");
         }
     }
 
     public void PointerOutside(object sender, PointerEventArgs e)
     {
-        if (e.target.GetComponent<MeshRenderer>() != null && e.target.GetComponent<MeshRenderer>().material != selectionMaterial)
+        if (e.target.GetComponent<MeshRenderer>() != null && e.target.GetComponent<MeshRenderer>().sharedMaterial != selectionMaterial)
         {
-            e.target.GetComponent<MeshRenderer>().material = transparentMaterial;
+            
+            e.target.GetComponent<MeshRenderer>().sharedMaterial = formerMat;
             Debug.Log("Quad was exited");
         }
 
